@@ -1,0 +1,43 @@
+.input-group-addon {
+	width: 40px;
+}
+
+#input-name {
+	width: 280px;
+}
+
+#show_avatar {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+
+#profile_avatar {
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    top: 10px;
+    left: -40px;
+    border-radius: 50%;
+}
+
+.user_avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    -webkit-transition: all 1s ease; /* Safari and Chrome */
+    -moz-transition: all 1s ease; /* Firefox */
+    -ms-transition: all 1s ease; /* IE 9 */
+    -o-transition: all 1s ease; /* Opera */
+    transition: all 1s ease;
+    margin-left: 50px;
+}
+
+.user_avatar:hover {
+    cursor: pointer;
+    -webkit-transform:scale(1.6); /* Safari and Chrome */
+    -moz-transform:scale(1.6); /* Firefox */
+    -ms-transform:scale(1.6); /* IE 9 */
+    -o-transform:scale(1.6); /* Opera */
+     transform:scale(1.6);
+}
