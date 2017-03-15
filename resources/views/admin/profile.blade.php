@@ -30,7 +30,6 @@
                             </div>
 
                             <div class="col-md-6 col-sm-6 col-xs-12 personal-info">
-                                <h4> Thông tin người dùng </h4>
                                 <div class="form-group">
                                     <label for="name" class="col-lg-3 control-label">
                                         Tên
@@ -38,6 +37,36 @@
                                     <div class="col-lg-8 input-group">
                                         <span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
                                         <input type="text" name="name" value="{{$user->name}}" class="form-control" autofocus="autofocus">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="mail" class="col-lg-3 control-label">
+                                        Email
+                                    </label>
+                                    <div class="col-lg-8 input-group">
+                                        <span class="input-group-addon"><i class="fa fa-envelope-o" aria-hidden="true"></i></span>
+                                        <input type="text" name="email" value="{{$user->email}}" class="form-control">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="date_of_birth" class="col-lg-3 control-label">
+                                        Ngày sinh
+                                    </label>
+                                    <div class="col-lg-8 input-group">
+                                        <span class="input-group-addon"><i class="fa fa-edit fa-fw" aria-hidden="true"></i></span>
+                                        <input type="date" name="date_of_birth" value="{{$user->date_of_birth}}" class="form-control">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="date_of_birth" class="col-lg-3 control-label">
+                                        Giới tính
+                                    </label>
+                                    <div class="col-lg-8">
+                                        <input type="radio" name="gender" value="0" {{($user->gender == 0) ? "checked" : '' }}> Nam
+                                        <input type="radio" name="gender" value="1" {{($user->gender == 1) ? "checked" : '' }}> Nữ
                                     </div>
                                 </div>
 
@@ -61,15 +90,6 @@
                                     </div>
                                 </div>
 
-                                <div class="form-group">
-                                    <label for="mail" class="col-lg-3 control-label">
-                                        Email
-                                    </label>
-                                    <div class="col-lg-8 input-group">
-                                        <span class="input-group-addon"><i class="fa fa-envelope-o" aria-hidden="true"></i></span>
-                                        <input type="text" name="email" value="{{$user->email}}" class="form-control">
-                                    </div>
-                                </div>
                                 <div class="form-group">
                                     <div class="col-lg-3"></div>
                                     <div class="col-lg-8">

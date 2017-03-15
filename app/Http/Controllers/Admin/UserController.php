@@ -54,29 +54,6 @@ class UserController extends Controller
 
         return view('admin.users.show', compact('role', 'user'));
     }
-    public function profile(User $user)
-    {
-    	return view('admin.users.profile', compact('user'));
-    }
-
-    public function updateProfile(Request $request, $id)
-    {
-    	$user = User::findOrFail($id);
-
-    	if ($request->hasFile('avatar')) {
-            $filename = $request->avatar;
-            Cloudder::upload($filename, config('common.path_cloud_avatar') . $user->email);
-            $user->avatar = Cloudder::getResult()['url'];
-        }
-
-    	$user->name = $request->name;
-    	$user->address = $request->address;
-    	$user->phone = $request->phone;
-    	$user->email = $request->email;
-    	$user->save();
-
-    	return redirect('/admin/profile/'. $user->id)->withSuccess('Cập nhật ảnh thành công');
-    }
 
     public function importExcel(Request $request, $role)
     {

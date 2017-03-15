@@ -6,15 +6,17 @@
             </li>
             <li class="dropdown" id="link_profile">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                    @if (Auth::user()->isAdmin())
-                        <img src="{{Auth::user()->avatar}}" id="profile_avatar"><i class="fa fa-caret-down"></i>
-                    @else
-                        <img src="../{{Auth::user()->avatar}}" id="profile_avatar"><i class="fa fa-caret-down"></i>
-                    @endif
+                    <img src="{{Auth::user()->avatar}}" id="profile_avatar"><i class="fa fa-caret-down"></i>
                 </a>
                 <ul class="dropdown-menu dropdown-user">
                     <li>
-                        <a href="{{ url('admin/profile', Auth::user()->id) }}"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                        @if (Auth::user()->isAdmin())
+                            <a href="{{ url('admin/profile', Auth::user()->id) }}"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                        @elseif (Auth::user()->isTeacher())
+                            <a href="{{ url('teacher/profile', Auth::user()->id) }}"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                        @else
+                            <a href="{{ url('user/profile', Auth::user()->id) }}"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                        @endif
                     </li>
                     <li>
                         <a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
