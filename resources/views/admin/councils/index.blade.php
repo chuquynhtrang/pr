@@ -4,7 +4,7 @@
 <div id="page-wrapper">
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">Users</h1>
+            <h1 class="page-header">Councils</h1>
         </div>
         <!-- /.col-lg-12 -->
     </div>
@@ -12,15 +12,19 @@
     @include('layouts.partials.errors')
     @include('layouts.partials.success')
 
-    <form method="POST" action="{{ url('admin/users/'. $role .'/importExcel') }}" enctype="multipart/form-data">
-        <div class="form-inline">
-            {{ csrf_field() }}
-            <div class="form-group">
-                <input type="file" name="fileUser">
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="panel panel-default">
+                <div class="panel-heading table-panel">
+                    Create Council
+                </div>
+                @include('admin.councils._form', [
+                    'action' => url('/admin/councils'),
+                    'input' => '',
+                ])
             </div>
-            <button type="submit" class="btn btn-success btn-sm"><i class="fa fa-download"></i>&nbsp;Import</button>
         </div>
-    </form>
+    </div>
 
     <hr>
 
@@ -28,7 +32,7 @@
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading table-panel">
-                    User Tables
+                    Council Tables
                 </div>
                 <!-- /.panel-heading -->
                 <div class="panel-body">
@@ -36,33 +40,25 @@
                         <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>Avatar</th>
                                 <th>Name</th>
-                                <th>Details</th>
+                                <th>Created At</th>
+                                <th>Updated At</th>
                                 <th>Edit</th>
                                 <th>Delete</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($users as $user)
+                            @foreach ($councils as $council)
                                 <tr>
-                                    <td>{{ $user->id }}</td>
+                                    <td>{{ $council->id }}</td>
+                                    <td>{{ $council->name }}</td>
+                                    <td>{{ $council->created_at }}</td>
+                                    <td>{{ $council->updated_at }}</td>
                                     <td>
-                                        @if($user->role == 1)
-                                            <a href="{{url('/admin/users/'. $role . '/show/' . $user->id) }}"><img src="{{ $user->avatar }}"  class="user_avatar"></a>
-                                        @elseif($user->role == 2)
-                                            <a href="{{url('/admin/users/'. $role . '/show/' . $user->id) }}"><img src="../../{{ $user->avatar }}"  class="user_avatar"></a>
-                                        @endif
-                                    </td>
-                                    <td>{{ $user->name }}</td>
-                                    <td>
-                                        <a href="{{url('/admin/users/'. $role . '/show/' . $user->id) }}" class="btn btn-default btn-sm"><i class="fa fa-info-circle"></i>&nbsp;View</a>
+                                        <a href="{{ url('/admin/councils/' . $council->id . '/edit') }}" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></a>
                                     </td>
                                     <td>
-                                        <a href="" class="edit btn btn-primary btn-sm"><i class="fa fa-edit"></i></a>
-                                    </td>
-                                    <td>
-                                        <form method="POST" action="">
+                                        <form method="POST" action="{{ url('admin/councils/' . $council->id) }}">
                                             {{csrf_field()}}
                                             <input name="_method" type="hidden" value="DELETE">
                                             <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure delete?')"><i class="fa fa-trash"></i></button>

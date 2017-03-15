@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Cloudder;
 use App\Models\User;
+use Excel;
 
 class UserController extends Controller
 {
@@ -75,5 +76,46 @@ class UserController extends Controller
     	$user->save();
 
     	return redirect('/admin/profile/'. $user->id)->withSuccess('Cập nhật ảnh thành công');
+    }
+
+    public function importExcel(Request $request, $role)
+    {
+        if ($request->hasFile('fileUser')) {
+            // dd('aaa');
+            $path = $request->file('fileUser')->getRealPath();
+            $userExcel = Excel::load($path)->get();
+            if (!empty($userExcel) && $userExcel->count()) {
+                foreach ($userExcel as $num => $row) {
+                    foreach ($row as $key => $value) {
+                        $insert[] = [
+                            'user_code' => $value->user_code,
+                            'name' => $value->name,
+                            'email' => $value->email,
+                            'password' => bcrypt('123456'),
+                            'date_of_birth' => $value->date_of_birth,
+                            'gender' => $value->gender,
+                            'address' => $value->address,
+                            'phone' => $value->phone,
+                            'avatar' => 'images/default.png',
+                            'class' => $value->class,
+                            'course' => $value->course,
+                            'workplace' => $value->workplace,
+                            'position' => $value->position,
+                            'score' => $value->score,
+                            'role' => $role,
+                            'created_at' => date('Y-m-d h:i:s'),
+                            'updated_at' => date('Y-m-d h:i:s'),
+                        ];
+                    }
+                }
+
+                if (!empty($insert)) {
+                    $user = new User();
+                    $user->insert($insert);
+                }
+            }
+        }
+
+        return redirect('admin/users/'. $role)->withSuccess('Import thành công');
     }
 }

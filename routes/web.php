@@ -27,6 +27,7 @@ Route::group(['middleware' => 'admin', 'prefix' => 'admin', 'namespace' => 'Admi
 	Route::get('/users/{role}/create', 'UserController@create');
 	Route::post('/users/{role}/store', 'UserController@store');
 	Route::get('/users/{role}/show/{user}', 'UserController@show');
+	Route::post('/users/{role}/importExcel', 'UserController@importExcel');
 
 	Route::resource('/forms', 'FormController');
 	Route::post('/forms/upload', 'FormController@upload');
@@ -36,4 +37,9 @@ Route::group(['middleware' => 'admin', 'prefix' => 'admin', 'namespace' => 'Admi
 
 Route::group(['prefix' => 'user', 'namespace' => 'User'], function() {
 	Route::get('/', 'UserController@index');
+});
+
+Route::group(['prefix' => 'teacher', 'namespace' => 'Teacher'], function() {
+	Route::get('/', 'TeacherController@index');
+	Route::resource('/projects', 'ProjectController');
 });
