@@ -18,7 +18,7 @@
 		            </div>
 
 		    		<div class="panel-body">
-		    			<form method="POST" action="{{url('teacher/projects/store')}}" class="form-horizontal">
+		    			<form method="POST" action="{{url('teacher/projects')}}" class="form-horizontal">
 							{{csrf_field()}}
 			    			@include('teacher.projects._form')
 			    		</form>

@@ -39,7 +39,25 @@
                             </tr>
                         </thead>
                         <tbody>
-                            
+                            @foreach($projects as $project)
+                                <tr>
+                                    <td>{{ $project->id }}</td>
+                                    <td>{{ $project->name }}</td>
+                                    <td>{{ $project->description }}</td>
+                                    <td>{{ $project->created_at }}</td>
+                                    <td>{{ $project->updated_at }}</td>
+                                    <td>
+                                        <a href="{{ url('/teacher/projects/' . $project->id . '/edit') }}" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></a>
+                                    </td>
+                                    <td>
+                                        <form method="POST" action="{{ url('teacher/projects/' . $project->id) }}">
+                                            {{csrf_field()}}
+                                            <input name="_method" type="hidden" value="DELETE">
+                                            <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure delete?')"><i class="fa fa-trash"></i></button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

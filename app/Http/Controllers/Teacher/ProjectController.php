@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Teacher;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Project;
+use Auth;
 
 class ProjectController extends Controller
 {
@@ -27,8 +28,10 @@ class ProjectController extends Controller
         ]);
 
         $project = new Project();
-        $name = $request->only('name');
-        $project->create($name);
+        $project->name = $request->name;
+        $project->description = $request->description;
+        $project->teacher_id = Auth::user()->id;
+        $project->save();
 
         return redirect('/teacher/projects')->withSuccess('Create Class Successfully!');
     }

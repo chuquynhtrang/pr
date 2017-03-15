@@ -16,7 +16,7 @@ class UserController extends Controller
 
     public function index()
     {
-    	return view('user.projects.index');
+    	return redirect('user/projects');
     }
 
     public function profile(User $user)

@@ -39,6 +39,9 @@ Route::group(['prefix' => 'user', 'namespace' => 'User'], function() {
 	Route::get('/', 'UserController@index');
 	Route::get('/profile/{user}', 'UserController@profile');
 	Route::put('/profile/{user}', 'UserController@updateProfile');
+	Route::get('/projects', 'ProjectController@index');
+	Route::get('/projects/{project}', 'ProjectController@show');
+	Route::post('/projects/register/{project}', 'ProjectController@register');
 });
 
 Route::group(['prefix' => 'teacher', 'namespace' => 'Teacher'], function() {
