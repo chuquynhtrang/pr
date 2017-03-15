@@ -6,6 +6,8 @@
  */
 
 require('./bootstrap');
+require('metismenu');
+var dt = require('datatables');
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -18,3 +20,8 @@ Vue.component('example', require('./components/Example.vue'));
 const app = new Vue({
     el: '#app'
 });
+$(document).ready(function() {
+	$('#dataTables').DataTable();
+});
+
+$('.success_show').hide(2500);

@@ -17,15 +17,6 @@
                     <a href="{{ url('/admin') }}"><i class="fa fa-area-chart fa-fw"></i>&nbsp;&nbsp;Thống kê</a>
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-bars fa-fw"></i>&nbsp;&nbsp;Quản lý khóa học</a>
-                </li>
-                <li>
-                    <a href="{{ url('/admin/subjects') }}"><i class="fa fa-bookmark fa-fw"></i>&nbsp;&nbsp;Quản lý bộ môn</a>
-                </li>
-                <li>
-                    <a href="{{ url('/admin/groups') }}"><i class="fa fa-building fa-fw"></i>&nbsp;&nbsp;Quản lý lớp học</a>
-                </li>
-                <li>
                     <a href="#"><i class="fa fa-user-circle fa-fw"></i>&nbsp;&nbsp;Quản lý người dùng<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
@@ -42,10 +33,13 @@
                     <!-- /.nav-second-level -->
                 </li>
                 <li>
-                    <a href="{{ url('admin/projects') }}"><i class="fa fa-book fa-fw"></i>&nbsp;&nbsp;Quản lý đề tài</a>
+                    <a href="{{ url('admin/projects') }}"><i class="fa fa-book fa-fw"></i>&nbsp;&nbsp;Quản lý đồ án</a>
                 </li>
                 <li>
-                    <a href="{{ url('admin/forms') }}"><i class="fa fa-file-pdf-o fa-fw"></i>&nbsp;&nbsp;Quản lý biểu mẫu</a>
+                    <a href="{{ url('admin/forms') }}"><i class="fa fa-file-text-o fa-fw"></i>&nbsp;&nbsp;Quản lý biểu mẫu</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-tasks fa-fw"></i>&nbsp;&nbsp;Kiểm tra tiến độ</a>
                 </li>
                 <li>
                     <a href="{{ url('/admin/councils') }}"><i class="fa fa-address-card fa-fw"></i>&nbsp;&nbsp;Quản lý hội đồng bảo vệ</a>
@@ -57,6 +51,9 @@
                 </li>
                 <li>
                     <a href="{{ url('#') }}"><i class="fa fa-list-alt fa-fw"></i>&nbsp;&nbsp;Danh sách sinh viên</a>
+                </li>
+                <li>
+                    <a href="{{ url('#') }}"><i class="fa fa-list-alt fa-fw"></i>&nbsp;&nbsp;Danh sách giảng viên</a>
                 </li>
                 <li>
                     <a href="{{ url('#') }}"><i class="fa fa-address-card fa-fw"></i>&nbsp;&nbsp;Hội đồng bảo vệ</a>

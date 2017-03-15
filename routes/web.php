@@ -17,6 +17,23 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::group(['middleware' => 'admin', 'prefix' => 'admin', 'namespace' => 'Admin'], function() {
+	Route::get('/', 'AdminController@index');
+
+	Route::get('/profile/{user}', 'UserController@profile');
+	Route::put('/profile/{user}', 'UserController@updateProfile');
+
+	Route::get('/users/{role}', 'UserController@index');
+	Route::get('/users/{role}/create', 'UserController@create');
+	Route::post('/users/{role}/store', 'UserController@store');
+	Route::get('/users/{role}/show/{user}', 'UserController@show');
+
+	Route::resource('/forms', 'FormController');
+	Route::post('/forms/upload', 'FormController@upload');
+
+	Route::resource('/councils', 'CouncilController');
+});
+
 Route::group(['prefix' => 'user', 'namespace' => 'User'], function() {
 	Route::get('/', 'UserController@index');
 });
