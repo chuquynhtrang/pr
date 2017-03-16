@@ -13,13 +13,17 @@
     @include('layouts.partials.success')
 
     <div class="row">
-        <a href="{{ url('teacher/projects/create')}}" class="btn btn-success btn-md" id="create-form">Thêm đề tài</a>
+        <a href="{{ url('teacher/projects/create')}}" class="btn btn-success btn-md {{ $checkButton ? 'disabled' : '' }}" id="create-form" >Thêm đề tài</a>
     </div>
-
     <hr>
 
     <div class="row">
         <div class="col-lg-12">
+            @if (isset($message))
+                <div class="alert alert-danger">
+                    {{ $message }}
+                </div>
+            @endif
             <div class="panel panel-default">
                 <div class="panel-heading table-panel">
                     Danh sách đề tài
@@ -31,7 +35,8 @@
                             <tr>
                                 <th>ID</th>
                                 <th>Tên đề tài</th>
-                                <th>Miêu tả</th>
+                                <th>Hướng thực hiện</th>
+                                <th>Tài liệu tham khảo</th>
                                 <th>Created At</th>
                                 <th>Updated At</th>
                                 <th>Edit</th>
@@ -44,6 +49,9 @@
                                     <td>{{ $project->id }}</td>
                                     <td>{{ $project->name }}</td>
                                     <td>{{ $project->description }}</td>
+                                    <td>
+                                        <a href="http://localhost/pr/public/uploads/references/{{$project->references}}" target="_blank">{{ $project->references }}</a>
+                                    </td>
                                     <td>{{ $project->created_at }}</td>
                                     <td>{{ $project->updated_at }}</td>
                                     <td>

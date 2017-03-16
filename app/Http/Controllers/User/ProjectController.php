@@ -50,4 +50,18 @@ class ProjectController extends Controller
 
         return redirect('user/projects')->withSuccess('Bạn đăng kí đề tài thành công! Hãy chờ phê duyệt');
     }
+
+    public function destroy($userId)
+    {
+        $userProject = UserProject::where('user_id', $userId)->get();
+
+        if (!count($userProject)) {
+            return redirect('/user/projects')
+                ->withErrors(['message' => 'Không tìm thấy đề tài của bạn']);
+        }
+
+        $userProject[0]->delete();
+
+        return redirect('user/projects')->withSuccess('Hủy đăng kí đề tài thành công');
+    }
 }

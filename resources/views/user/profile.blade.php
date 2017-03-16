@@ -31,6 +31,15 @@
 
                             <div class="col-md-6 col-sm-6 col-xs-12 personal-info">
                                 <div class="form-group">
+                                    <label for="user_code" class="col-lg-3 control-label">
+                                        Mã sinh viên
+                                    </label>
+                                    <div class="col-lg-8 input-group">
+                                        <span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
+                                        <input type="text" name="user_code" value="{{$user->user_code}}" class="form-control" autofocus="autofocus">
+                                    </div>
+                                </div>
+                                <div class="form-group">
                                     <label for="name" class="col-lg-3 control-label">
                                         Tên
                                     </label>

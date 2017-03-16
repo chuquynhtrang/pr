@@ -16,8 +16,12 @@
         <div class="col-lg-12">
             @if($check)
                 <div class="alert alert-danger">
-                    Bạn đã đăng kí đề tài. 
+                    Bạn đã đăng kí đề tài.
                     <a href="{{url('user/projects/'. $user[0]->project_id)}}">Click để xem</a>
+                </div>
+            @else
+                <div class="alert alert-success">
+                    Bạn chưa đăng kí đề tài nào.
                 </div>
             @endif
             <div class="panel panel-default">

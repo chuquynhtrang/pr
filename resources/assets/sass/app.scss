@@ -84,3 +84,7 @@ a#create-form {
 .table-form tbody td {
 	padding: 3px 10px !important;
 }
+
+a.disabled {
+	pointer-events: none;
+}

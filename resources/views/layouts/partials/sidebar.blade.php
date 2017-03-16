@@ -52,10 +52,10 @@
                     <a href="#"><i class="fa fa-user-circle fa-fw"></i>&nbsp;&nbsp;Danh sách đăng kí<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="#">Chờ phê duyệt</a>
+                            <a href="{{url('teacher/users/wait') }}">Chờ phê duyệt</a>
                         </li>
                         <li>
-                            <a href="#">Đã nhận</a>
+                            <a href="{{url('teacher/users/receive') }}">Đã nhận</a>
                         </li>
                     </ul>
                     <!-- /.nav-second-level -->

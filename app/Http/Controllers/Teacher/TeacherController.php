@@ -16,7 +16,7 @@ class TeacherController extends Controller
 
     public function index()
     {
-    	return view('teacher.projects.index');
+    	return redirect('teacher/projects');
     }
 
     public function profile(User $user)
@@ -34,6 +34,7 @@ class TeacherController extends Controller
             $user->avatar = Cloudder::getResult()['url'];
         }
 
+        $user->user_code = $request->user_code;
         $user->name = $request->name;
         $user->address = $request->address;
         $user->phone = $request->phone;

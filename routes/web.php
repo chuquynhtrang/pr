@@ -42,6 +42,7 @@ Route::group(['prefix' => 'user', 'namespace' => 'User'], function() {
 	Route::get('/projects', 'ProjectController@index');
 	Route::get('/projects/{project}', 'ProjectController@show');
 	Route::post('/projects/register/{project}', 'ProjectController@register');
+	Route::delete('/{user}/projects', 'ProjectController@destroy');
 });
 
 Route::group(['prefix' => 'teacher', 'namespace' => 'Teacher'], function() {
@@ -49,4 +50,6 @@ Route::group(['prefix' => 'teacher', 'namespace' => 'Teacher'], function() {
 	Route::resource('/projects', 'ProjectController');
 	Route::get('/profile/{user}', 'TeacherController@profile');
 	Route::put('/profile/{user}', 'TeacherController@updateProfile');
+	Route::get('/users/wait', 'UserController@wait');
+	Route::get('/users/receive', 'UserController@receive');
 });

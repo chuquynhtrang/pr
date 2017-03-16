@@ -12,8 +12,18 @@ class ProjectController extends Controller
     public function index()
     {
     	$projects = Project::all();
+        $checkButton = false;
+        if (Auth::user()->position == 0 && count($projects) == 3) {
+            $checkButton = true;
+            $message = "Bạn đã thêm tối đa 3 đề tài!";
+        }
 
-    	return view('teacher.projects.index', compact('projects'));
+        if(Auth::user()->position == 1 && count($projects) == 5) {
+            $checkButton == true;
+            $message = "Bạn đã thêm tối đa 5 đề tài!";
+        }
+
+    	return view('teacher.projects.index', compact('projects', 'checkButton', 'message'));
     }
 
     public function create()
@@ -31,6 +41,13 @@ class ProjectController extends Controller
         $project->name = $request->name;
         $project->description = $request->description;
         $project->teacher_id = Auth::user()->id;
+        if($request->hasFile('references')) {
+            $name = $request->file('references');
+            $filename = $name->getClientOriginalName();
+            $request->file('references')->move(base_path() . '/public/uploads/references', $filename);
+            $project->references = $filename;
+        }
+
         $project->save();
 
         return redirect('/teacher/projects')->withSuccess('Create Class Successfully!');
@@ -64,14 +81,18 @@ class ProjectController extends Controller
                 ->withErrors(['message' => 'Not found class']);
         }
 
-        $this->validate($request, [
-            'name' => 'required|unique:projects',
-        ]);
+        $project->name = $request->name;
+        $project->description = $request->description;
+        if($request->hasFile('references')) {
+            $name = $request->file('references');
+            $filename = $name->getClientOriginalName();
+            $request->file('references')->move(base_path() . '/public/uploads/references', $filename);
+            $project->references = $filename;
+        }
 
-        $request = $request->only('name');
-        $project->update($request);
+        $project->save();
 
-        return redirect('/teacher/projects')->withSuccess('Update Class Successfully!');
+        return redirect('/teacher/projects')->withSuccess('Cập nhật đề tài thành công!');
     }
 
     public function destroy($id)
@@ -80,11 +101,12 @@ class ProjectController extends Controller
 
         if (!$project) {
             return redirect('/teacher/projects')
-                ->withErrors(['message' => 'Not found class']);
+                ->withErrors(['message' => 'Không tìm thấy đề tài']);
         }
 
         $project->delete();
+        unlink('uploads/references/' . $project->references);
 
-        return redirect('/teacher/projects')->withSuccess('Delete Class Successfully!');
+        return redirect('/teacher/projects')->withSuccess('Xóa đề tài thành công!');
     }
 }

@@ -4,40 +4,25 @@
 <div id="page-wrapper">
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">Users</h1>
+            <h1 class="page-header">Danh sách sinh viên chờ phê duyệt</h1>
         </div>
         <!-- /.col-lg-12 -->
     </div>
-
-    @include('layouts.partials.errors')
-    @include('layouts.partials.success')
-
-    <form method="POST" action="{{ url('admin/users/'. $role .'/importExcel') }}" enctype="multipart/form-data">
-        <div class="form-inline">
-            {{ csrf_field() }}
-            <div class="form-group">
-                <input type="file" name="fileUser">
-            </div>
-            <button type="submit" class="btn btn-success btn-sm"><i class="fa fa-download"></i>&nbsp;Import</button>
-        </div>
-    </form>
 
     <hr>
 
     <div class="row">
         <div class="col-lg-12">
             <div class="panel panel-default">
-                <div class="panel-heading table-panel">
-                    User Tables
-                </div>
                 <!-- /.panel-heading -->
                 <div class="panel-body">
                     <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables">
                         <thead>
                             <tr>
-                                <th>ID</th>
-                                <th>Avatar</th>
-                                <th>Name</th>
+                                <th>Mã sinh viên</th>
+                                <th>Ảnh đại diện</th>
+                                <th>Tên</th>
+                                <th></th>
                                 <th>Details</th>
                                 <th>Edit</th>
                                 <th>Delete</th>

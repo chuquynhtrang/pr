@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUserCouncilsTable extends Migration
+class CreateCouncilsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -15,7 +15,7 @@ class CreateUserCouncilsTable extends Migration
     {
         Schema::create('councils', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
+            $table->text('place');
             $table->timestamps();
         });
     }

@@ -34,6 +34,7 @@ class UserController extends Controller
             $user->avatar = Cloudder::getResult()['url'];
         }
 
+        $user->user_code = $request->user_code;
         $user->name = $request->name;
         $user->address = $request->address;
         $user->phone = $request->phone;

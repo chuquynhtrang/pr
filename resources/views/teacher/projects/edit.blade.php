@@ -14,16 +14,16 @@
 			    @include('layouts.partials.success')
 		        <div class="panel panel-default">
 		            <div class="panel-heading table-panel">
-		                Thêm mới đề tài
+		                Chỉnh sửa đề tài
 		            </div>
-
-		    		<div class="panel-body">
-		    			<form method="POST" action="{{url('teacher/projects')}}" class="form-horizontal" enctype="multipart/form-data">
+		            <div class="panel-body">
+	    				<form method="POST" action="{{$action}}" class="form-horizontal" enctype="multipart/form-data">
 							{{csrf_field()}}
+							{!!$input!!}
 			    			@include('teacher.projects._form')
 			    		</form>
-		    		</div>
-		    	</div>
+			    	</div>
+	    		</div>
 	    	</div>
     	</div>
 	</div>

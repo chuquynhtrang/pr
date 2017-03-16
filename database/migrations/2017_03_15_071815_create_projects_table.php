@@ -19,7 +19,6 @@ class CreateProjectsTable extends Migration
             $table->text('description')->nullable();
             $table->string('references')->nullable();
             $table->integer('teacher_id')->unsigned();
-            $table->foreign('teacher_id')->references('id')->on('users');
             $table->timestamps();
         });
     }
