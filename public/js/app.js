@@ -11206,6 +11206,7 @@ var app = new Vue({
 });
 $(document).ready(function () {
   $('#dataTables').DataTable();
+  $('.datatables').DataTable();
 });
 
 $('.success_show').hide(2500);

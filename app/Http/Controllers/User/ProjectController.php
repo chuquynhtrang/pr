@@ -12,12 +12,18 @@ class ProjectController extends Controller
 {
     public function index()
     {
-        $check = false;
+        $check = 0;
 
     	$projects = Project::all();
-        $user = UserProject::where('user_id', Auth::user()->id)->get();
-        if ($user->count()) {
-            $check = true;
+        $user = UserProject::where('user_id', Auth::user()->id)->orderBy('id', 'desc')->get();
+        if(count($user)) {
+            if ($user[0]->status == 3) {
+                $check = 3;
+            } else if ($user[0]->status == 1) {
+                $check = 1;
+            } else if ($user[0]->status == 2) {
+                $check = 2;
+            }
         }
 
     	return view('user.projects.index', compact('projects', 'check', 'user'));
@@ -25,18 +31,24 @@ class ProjectController extends Controller
 
     public function show($id)
     {
-        $check = false;
+        $check = 0;
     	$project = Project::find($id);
-        $user = UserProject::where('user_id', Auth::user()->id)->get();
+        $user = UserProject::where('user_id', Auth::user()->id)->orderBy('id', 'desc')->get();
+        if(count($user)) {
+            $checkProject = $user[0]->project_id;
         //check user da dang ki de tai nao chua
-        if ($user->count()) {
-            $check = true;
+            if ($user[0]->status == 3) {
+                $check = 3;
+            } else if ($user[0]->status == 1) {
+                $check = 1;
+            } else if ($user[0]->status == 2) {
+                $check = 2;
+            }
         }
 
-        $userProject = UserProject::where('project_id', $id)->get();
-        // dd($userProject);
+        $userProject = UserProject::where('project_id', $id)->where('status', 1)->get();
 
-    	return view('user.projects.show', compact('project', 'userProject', 'check'));
+    	return view('user.projects.show', compact('project', 'userProject', 'check', 'checkProject'));
     }
 
     public function register(Request $request, $projectId)
@@ -53,10 +65,10 @@ class ProjectController extends Controller
 
     public function destroy($userId)
     {
-        $userProject = UserProject::where('user_id', $userId)->get();
+        $userProject = UserProject::where('user_id', $userId)->orderBy('id', 'desc')->get();
 
         if (!count($userProject)) {
-            return redirect('/user/projects')
+            return redirect('user/projects')
                 ->withErrors(['message' => 'Không tìm thấy đề tài của bạn']);
         }
 

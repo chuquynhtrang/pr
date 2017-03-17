@@ -14,14 +14,23 @@
 
     <div class="row">
         <div class="col-lg-12">
-            @if($check)
-                <div class="alert alert-danger">
-                    Bạn đã đăng kí đề tài.
+            @if($check == 1)
+                <div class="alert alert-warning">
+                    Cảm ơn bạn đã đăng kí. Đề tài đang được giảng viên phê duyệt.
                     <a href="{{url('user/projects/'. $user[0]->project_id)}}">Click để xem</a>
                 </div>
-            @else
+            @elseif($check == 2)
                 <div class="alert alert-success">
-                    Bạn chưa đăng kí đề tài nào.
+                    Đề tài bạn đăng kí đã được phê duyệt.
+                    <a href="{{url('user/projects/'. $user[0]->project_id)}}">Click để xem</a>
+                </div>
+            @elseif($check == 3)
+                <div class="alert alert-danger">
+                    Đề tài bạn đăng kí đã bị giảng viên từ chối. Mời bạn đăng kí lại!
+                </div>
+            @else
+                <div class="alert alert-info">
+                    Bạn chưa đăng kí đề tài nào!
                 </div>
             @endif
             <div class="panel panel-default">

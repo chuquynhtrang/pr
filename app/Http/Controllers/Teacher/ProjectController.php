@@ -5,13 +5,15 @@ namespace App\Http\Controllers\Teacher;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Project;
+use App\Models\UserProject;
 use Auth;
 
 class ProjectController extends Controller
 {
     public function index()
     {
-    	$projects = Project::all();
+    	$projects = Project::where('teacher_id', Auth::user()->id)->get();
+
         $checkButton = false;
         if (Auth::user()->position == 0 && count($projects) == 3) {
             $checkButton = true;
@@ -108,5 +110,22 @@ class ProjectController extends Controller
         unlink('uploads/references/' . $project->references);
 
         return redirect('/teacher/projects')->withSuccess('Xóa đề tài thành công!');
+    }
+
+    public function approve($projectId, $userId)
+    {
+        $notApprove = UserProject::whereProjectId($projectId)->where('user_id', '<>', $userId)->get();
+        foreach ($notApprove as $notApprove) {
+            $notApprove->status = 3;
+            $notApprove->save();
+        }
+
+        $userProject = UserProject::whereProjectId($projectId)->whereUserId($userId)->get();
+        foreach ($userProject as $userProject) {
+            $userProject->status = 2;
+            $userProject->save();
+        }
+
+        return redirect('teacher/users/wait');
     }
 }

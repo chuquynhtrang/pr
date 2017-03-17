@@ -11,54 +11,51 @@
 
     <hr>
 
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="panel panel-default">
-                <!-- /.panel-heading -->
-                <div class="panel-body">
-                    <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables">
-                        <thead>
-                            <tr>
-                                <th>Mã sinh viên</th>
-                                <th>Ảnh đại diện</th>
-                                <th>Tên</th>
-                                <th></th>
-                                <th>Details</th>
-                                <th>Edit</th>
-                                <th>Delete</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($users as $user)
+    @foreach($projects as $project)
+        <h3>Đề tài: {{$project->name}}</h3>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <!-- /.panel-heading -->
+                    <div class="panel-body">
+                        <table width="100%" class="table table-striped table-bordered table-hover" class="datatables">
+                            <thead>
                                 <tr>
-                                    <td>{{ $user->id }}</td>
-                                    <td>
-                                        <a href="{{url('/admin/users/'. $role . '/show/' . $user->id) }}"><img src="{{ $user->avatar }}"  class="user_avatar"></a>
-                                    </td>
-                                    <td>{{ $user->name }}</td>
-                                    <td>
-                                        <a href="{{url('/admin/users/'. $role . '/show/' . $user->id) }}" class="btn btn-default btn-sm"><i class="fa fa-info-circle"></i>&nbsp;View</a>
-                                    </td>
-                                    <td>
-                                        <a href="" class="edit btn btn-primary btn-sm"><i class="fa fa-edit"></i></a>
-                                    </td>
-                                    <td>
-                                        <form method="POST" action="">
-                                            {{csrf_field()}}
-                                            <input name="_method" type="hidden" value="DELETE">
-                                            <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure delete?')"><i class="fa fa-trash"></i></button>
-                                        </form>
-                                    </td>
+                                    <th>Mã sinh viên</th>
+                                    <th>Tên</th>
+                                    <th>Khóa học</th>
+                                    <th>Lớp học</th>
+                                    <th>Điểm trung bình</th>
+                                    <th>Duyệt</th>
                                 </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                                @foreach ($userProjects as $up)
+                                    @if($up->project_id == $project->id)
+                                    <tr>
+                                        <td>{{ $up->user->user_code }}</td>
+                                        <td><a href="{{url('teacher/users/'.$up->user->id)}}">{{ $up->user->name }}</a></td>
+                                        <td>{{ $up->user->course }}</td>
+                                        <td>{{ $up->user->class }}</td>
+                                        <td>{{ $up->user->score }}</td>
+                                        <td>
+                                            <form method="POST" action="{{url('teacher/projects/'.$project->id.'/users/'.$up->user->id.'/approve')}}">
+                                                {{csrf_field()}}
+                                                <button type="submit" class="btn btn-success btn-sm" onclick="return confirm('Bạn có chắc chắn không?')"><i class="fa fa-check"></i></button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                    @endif
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.panel-body -->
                 </div>
-                <!-- /.panel-body -->
+                <!-- /.panel -->
             </div>
-            <!-- /.panel -->
+            <!-- /.col-lg-12 -->
         </div>
-        <!-- /.col-lg-12 -->
-    </div>
+    @endforeach
 </div>
 @endsection

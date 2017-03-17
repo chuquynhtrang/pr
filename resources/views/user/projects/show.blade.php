@@ -19,13 +19,13 @@
     </div>
     <div class="row">
         <div class="col-lg-12">
-            @if ($check)
+            @if ($check == 1 && $checkProject == $project->id)
                 <form method="POST" action="{{ url('user/'. Auth::user()->id . '/projects/') }}">
                     {{csrf_field()}}
                     <input name="_method" type="hidden" value="DELETE">
                     <button type="submit" class="btn btn-danger btn-md" onclick="return confirm('Are you sure delete?')"><i class="fa fa-minus-circle"></i>&nbsp; Hủy đăng kí</button>
                 </form>
-            @else
+            @elseif ($check == 0 || ($check == 3 && $checkProject != $project->id))
                 <form method="POST" action="{{url('/user/projects/register/'. $project->id)}}">
                     {{csrf_field()}}
                     <button type="submit" class="btn btn-success btn-md">

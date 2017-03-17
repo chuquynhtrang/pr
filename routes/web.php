@@ -52,4 +52,6 @@ Route::group(['prefix' => 'teacher', 'namespace' => 'Teacher'], function() {
 	Route::put('/profile/{user}', 'TeacherController@updateProfile');
 	Route::get('/users/wait', 'UserController@wait');
 	Route::get('/users/receive', 'UserController@receive');
+	Route::get('/users/{user}', 'UserController@show');
+	Route::post('/projects/{project}/users/{user}/approve', 'ProjectController@approve');
 });
