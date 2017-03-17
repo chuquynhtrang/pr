@@ -33,6 +33,8 @@ Route::group(['middleware' => 'admin', 'prefix' => 'admin', 'namespace' => 'Admi
 	Route::post('/forms/upload', 'FormController@upload');
 
 	Route::resource('/councils', 'CouncilController');
+
+	Route::get('/projects', 'ProjectController@index');
 });
 
 Route::group(['prefix' => 'user', 'namespace' => 'User'], function() {

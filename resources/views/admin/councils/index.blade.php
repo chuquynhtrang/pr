@@ -4,7 +4,7 @@
 <div id="page-wrapper">
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">Councils</h1>
+            <h1 class="page-header">Hội đồng bảo vệ</h1>
         </div>
         <!-- /.col-lg-12 -->
     </div>
@@ -16,7 +16,7 @@
         <div class="col-lg-6">
             <div class="panel panel-default">
                 <div class="panel-heading table-panel">
-                    Create Council
+                    Thêm hội đồng bảo vệ
                 </div>
                 @include('admin.councils._form', [
                     'action' => url('/admin/councils'),
@@ -32,7 +32,7 @@
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading table-panel">
-                    Council Tables
+                    Danh sách hội đồng bảo vệ
                 </div>
                 <!-- /.panel-heading -->
                 <div class="panel-body">
@@ -40,9 +40,9 @@
                         <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>Name</th>
-                                <th>Created At</th>
-                                <th>Updated At</th>
+                                <th>Địa điểm</th>
+                                <th>Ngày tạo</th>
+                                <th>Ngày sửa</th>
                                 <th>Edit</th>
                                 <th>Delete</th>
                             </tr>
