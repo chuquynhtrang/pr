@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\UserProject;
 use App\Models\Project;
 use Cloudder;
+use Auth;
 
 class UserController extends Controller
 {
@@ -53,7 +54,8 @@ class UserController extends Controller
 
     public function progress()
     {
-        $userProjects = UserProject::where('status', 1)->orderBy('id', 'desc')->get();
-        dd($userProjects);
+        $userProjects = UserProject::where('user_id', Auth::user()->id)->where('status', 2)->orderBy('id', 'desc')->get();
+
+        return view('user.projects.progress', compact('userProjects'));
     }
 }
