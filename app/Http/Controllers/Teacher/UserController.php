@@ -21,7 +21,10 @@ class UserController extends Controller
 
     public function receive()
     {
-    	return 'bbb';
+    	$projects = Project::where('teacher_id', Auth::user()->id)->get();
+        $userProjects = UserProject::where('status', 2)->get();
+
+        return view('teacher.users.receive', compact('userProjects', 'projects'));
     }
 
     public function show($id)

@@ -5,6 +5,8 @@ namespace App\Http\Controllers\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\UserProject;
+use App\Models\Project;
 use Cloudder;
 
 class UserController extends Controller
@@ -47,5 +49,11 @@ class UserController extends Controller
         $user->save();
 
         return redirect('/user/profile/'. $user->id)->withSuccess('Cập nhật ảnh thành công');
+    }
+
+    public function progress()
+    {
+        $userProjects = UserProject::where('status', 1)->orderBy('id', 'desc')->get();
+        dd($userProjects);
     }
 }

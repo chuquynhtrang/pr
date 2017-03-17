@@ -43,6 +43,8 @@ Route::group(['prefix' => 'user', 'namespace' => 'User'], function() {
 	Route::get('/projects/{project}', 'ProjectController@show');
 	Route::post('/projects/register/{project}', 'ProjectController@register');
 	Route::delete('/{user}/projects', 'ProjectController@destroy');
+	Route::get('/forms', 'FormController@index');
+	Route::get('/progress', 'UserController@progress');
 });
 
 Route::group(['prefix' => 'teacher', 'namespace' => 'Teacher'], function() {
@@ -54,4 +56,5 @@ Route::group(['prefix' => 'teacher', 'namespace' => 'Teacher'], function() {
 	Route::get('/users/receive', 'UserController@receive');
 	Route::get('/users/{user}', 'UserController@show');
 	Route::post('/projects/{project}/users/{user}/approve', 'ProjectController@approve');
+	Route::get('/forms', 'FormController@index');
 });

@@ -71,7 +71,7 @@
                     <a href="{{ url('user/projects') }}"><i class="fa fa-edit fa-fw"></i>&nbsp;&nbsp;Đăng kí đề tài</a>
                 </li>
                 <li>
-                    <a href="{{ url('#') }}"><i class="fa fa-flag fa-fw"></i>&nbsp;&nbsp;Cập nhật tiến độ</a>
+                    <a href="{{ url('user/progress') }}"><i class="fa fa-flag fa-fw"></i>&nbsp;&nbsp;Cập nhật tiến độ</a>
                 </li>
                 <li>
                     <a href="{{ url('user/forms') }}"><i class="fa fa-file-pdf-o fa-fw"></i>&nbsp;&nbsp;Biểu mẫu tham khảo</a>
