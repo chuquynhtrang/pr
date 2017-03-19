@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Models\UserProject;
 use App\Models\Project;
+use App\Models\Diary;
 use Cloudder;
 use Auth;
 
@@ -55,7 +56,26 @@ class UserController extends Controller
     public function progress()
     {
         $userProjects = UserProject::where('user_id', Auth::user()->id)->where('status', 2)->orderBy('id', 'desc')->get();
+        $diaries = Diary::whereUserId(Auth::user()->id)->orderBy('created_at', 'desc')->limit(3)->get();
 
-        return view('user.projects.progress', compact('userProjects'));
+        return view('user.projects.progress', compact('userProjects', 'diaries'));
+    }
+
+    public function updateProgress(Request $request) 
+    {
+        $diary = new Diary();
+        $diary->progress = $request->progress;
+        $diary->note = $request->note;
+        if ($request->hasFile('document')) {
+            $document = $request->file('document');
+            $filename = $document->getClientOriginalName();
+            $request->file('document')->move(base_path() . '/public/diaries/', $filename);
+            $diary->document = $filename;
+        }
+        $diary->user_id = Auth::user()->id;
+
+        $diary->save();
+
+        return redirect('/user/progress')->withSuccess('Cập nhật thành công');
     }
 }

@@ -51,4 +51,9 @@ class User extends Authenticatable
     {
         return $this->hasOne(UserProject::class, 'user_id', 'id');
     }
+
+    public function diaries()
+    {
+        return $this->hasMany(Diary::class);
+    }
 }

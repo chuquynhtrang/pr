@@ -47,6 +47,7 @@ Route::group(['prefix' => 'user', 'namespace' => 'User'], function() {
 	Route::delete('/{user}/projects', 'ProjectController@destroy');
 	Route::get('/forms', 'FormController@index');
 	Route::get('/progress', 'UserController@progress');
+	Route::post('/progress', 'UserController@updateProgress');
 });
 
 Route::group(['prefix' => 'teacher', 'namespace' => 'Teacher'], function() {

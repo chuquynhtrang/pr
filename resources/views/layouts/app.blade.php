@@ -48,5 +48,10 @@
     <script src="{{ asset('js/user.js') }}"></script>
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/sb-admin-2.js') }}"></script>
+    <script type="text/javascript">
+        function viewDiary($id) {
+            $('.progress-text-' + $id).toggle();
+        }
+    </script>
 </body>
 </html>

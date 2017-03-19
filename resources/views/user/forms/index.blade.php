@@ -24,10 +24,10 @@
                         @foreach($forms as $form)
                             <tr>
                                 <td>
-                                    <a href="http://localhost/demo/public/uploads/{{$form->name}}" target="_blank">
+                                    <a href="http://localhost/pr/public/uploads/{{$form->name}}" target="_blank">
                                         <img src="../images/document.png" alt="..." class="form-image">
                                     </a>
-                                    <a href="http://localhost/demo/public/uploads/{{$form->name}}" target="_blank" class="form-text">{{ $form->name }}</a>
+                                    <a href="http://localhost/pr/public/uploads/{{$form->name}}" target="_blank" class="form-text">{{ $form->name }}</a>
                                 </td>
                                 <td>{{ $form->created_at }}</td>
                             </tr>
