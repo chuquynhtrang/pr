@@ -46,9 +46,10 @@ class ProjectController extends Controller
             }
         }
 
-        $userProject = UserProject::where('project_id', $id)->where('status', 1)->get();
+        $userWait = UserProject::where('project_id', $id)->where('status', 1)->get();
+        $userReceive = UserProject::where('project_id', $id)->where('status', 2)->get();
 
-    	return view('user.projects.show', compact('project', 'userProject', 'check', 'checkProject'));
+    	return view('user.projects.show', compact('project', 'userWait', 'userReceive', 'check', 'checkProject'));
     }
 
     public function register(Request $request, $projectId)

@@ -36,36 +36,82 @@
         </div>
     </div>
     <hr>
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="panel panel-default">
-                <div class="panel-heading table-panel">
-                    Danh sách sinh viên chờ phê duyệt
-                </div>
-                <div class="panel-body">
-                    <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Sinh viên</th>
-                                <th>Ngày đăng kí</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach($userProject as $up)
+    @if(count($userWait))
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading table-panel">
+                        Danh sách sinh viên chờ phê duyệt
+                    </div>
+                    <div class="panel-body">
+                        <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables">
+                            <thead>
                                 <tr>
-                                    <td>{{ $up->user->id }}</td>
-                                    <td>{{ $up->user->name }}</td>
-                                    <td>{{ $up->created_at }}</td>
+                                    <th>Mã sinh viên</th>
+                                    <th>Sinh viên</th>
+                                    <th>Ảnh đại diện</th>
+                                    <th>Khóa học</th>
+                                    <th>Lớp học</th>
+                                    <th>Ngày đăng kí</th>
                                 </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                                @foreach($userWait as $up)
+                                    <tr>
+                                        <td>{{ $up->user->id }}</td>
+                                        <td>{{ $up->user->name }}</td>
+                                        <td>
+                                            <a href="#"><img src="{{ $up->user->avatar }}"  class="user_avatar"></a>
+                                        </td>
+                                        <td>{{ $up->user->course }}</td>
+                                        <td>{{ $up->user->class }}</td>
+                                        <td>{{ $up->created_at }}</td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.panel-body -->
                 </div>
-                <!-- /.panel-body -->
+                <!-- /.panel -->
             </div>
-            <!-- /.panel -->
         </div>
-    </div>
+    @elseif(count($userReceive))
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading table-panel">
+                        Sinh viên được chọn
+                    </div>
+                    <div class="panel-body">
+                        <table width="100%" class="table table-striped table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Mã sinh viên</th>
+                                    <th>Sinh viên</th>
+                                    <th>Ảnh đại diện</th>
+                                    <th>Khóa học</th>
+                                    <th>Lớp học</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($userReceive as $up)
+                                    <tr>
+                                        <td>{{ $up->user->id }}</td>
+                                        <td>{{ $up->user->name }}</td>
+                                        <td>
+                                            <a href="#"><img src="{{ $up->user->avatar }}"  class="user_avatar"></a>
+                                        </td>
+                                        <td>{{ $up->user->course }}</td>
+                                        <td>{{ $up->user->class }}</td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endif
 </div>
 @endsection
