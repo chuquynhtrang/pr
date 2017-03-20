@@ -35,6 +35,8 @@ Route::group(['middleware' => 'admin', 'prefix' => 'admin', 'namespace' => 'Admi
 	Route::resource('/councils', 'CouncilController');
 
 	Route::get('/projects', 'ProjectController@index');
+
+	Route::resource('/news', 'NewController');
 });
 
 Route::group(['prefix' => 'user', 'namespace' => 'User'], function() {
