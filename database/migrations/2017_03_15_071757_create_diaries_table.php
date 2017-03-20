@@ -16,9 +16,12 @@ class CreateDiariesTable extends Migration
         Schema::create('diaries', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
-            $table->integer('progress')->nullable();
-            $table->text('note')->nullable();
-            $table->string('document')->nullable();
+            $table->integer('progress');
+            $table->text('complete');
+            $table->text('not_complete');
+            $table->text('advantage');
+            $table->text('difficult');
+            $table->text('expected');
             $table->timestamps();
         });
     }
