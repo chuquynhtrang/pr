@@ -8407,3 +8407,11 @@ a.disabled {
 .progress-bar {
   background-color: #5cb85c !important;
 }
+
+.form-control {
+  margin-bottom: 10px;
+}
+
+#file-news {
+  margin-top: 10px;
+}

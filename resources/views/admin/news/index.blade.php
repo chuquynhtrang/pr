@@ -30,12 +30,12 @@
                         </div>
                         <div class="form-group">
                             <label class="col-md-2 control-label" for="references" focus>Tài liệu</label>
-                            <div class="col-md-5">
-                                <input type="file" name="files">
+                            <div class="col-md-10">
+                                <input type="file" name="files" id="file-news">
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="col-md-2"></div>
+                            <div class="col-md-6"></div>
                             <div class="col-md-3">
                                 <button name="create" class="btn btn-success">
                                     Submit
