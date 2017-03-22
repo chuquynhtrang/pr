@@ -8,6 +8,7 @@
 require('./bootstrap');
 require('metismenu');
 var dt = require('datatables');
+require('ckeditor');
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -21,8 +22,8 @@ const app = new Vue({
     el: '#app'
 });
 $(document).ready(function() {
-	$('#dataTables').DataTable();
-	$('.datatables').DataTable();
+    $('#dataTables').DataTable();
+    $('.datatables').DataTable();
 });
 
 $('.success_show').hide(2500);

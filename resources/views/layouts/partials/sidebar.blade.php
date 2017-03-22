@@ -17,7 +17,7 @@
                     <a href="{{ url('/admin') }}"><i class="fa fa-area-chart fa-fw"></i>&nbsp;&nbsp;Thống kê</a>
                 </li>
                 <li>
-                    <a href="{{ url('/admin/news') }}"><i class="fa fa-area-chart fa-fw"></i>&nbsp;&nbsp;Thêm tin tức</a>
+                    <a href="{{ url('/admin/news') }}"><i class="fa fa-newspaper-o fa-fw"></i>&nbsp;&nbsp;Đăng tin tức</a>
                 </li>
                 <li>
                     <a href="#"><i class="fa fa-user-circle fa-fw"></i>&nbsp;&nbsp;Quản lý người dùng<span class="fa arrow"></span></a>
