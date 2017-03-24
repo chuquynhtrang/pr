@@ -65,4 +65,6 @@ Route::group(['prefix' => 'teacher', 'namespace' => 'Teacher'], function() {
 	Route::get('/progress', 'UserController@progress');
 	Route::post('/projects/{project}/users/{user}/approve', 'ProjectController@approve');
 	Route::get('/forms', 'FormController@index');
+	Route::get('/news', 'NewController@index');
+	Route::get('/news/{new}', 'NewController@show');
 });

@@ -16,7 +16,7 @@ class TeacherController extends Controller
 
     public function index()
     {
-    	return redirect('teacher/projects');
+    	return redirect('teacher/news');
     }
 
     public function profile(User $user)
