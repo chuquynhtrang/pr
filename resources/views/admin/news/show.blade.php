@@ -8,6 +8,11 @@
             <div class="panel panel-default">
             	<div class="panel-heading">
 					<h4><b>{!! $new->title !!}</b></h4>
+					<form method="POST" action="{{ url('admin/news/' . $new->id) }}">
+                        {{csrf_field()}}
+                        <input name="_method" type="hidden" value="DELETE">
+                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure delete?')"><i class="fa fa-trash"></i></button>
+                    </form>
 				</div>
                 <div class="panel-body">
 					<div class="info-news">

@@ -51,4 +51,18 @@ class NewController extends Controller
 
         return view('admin.news.show', compact('new', 'fileNews'));
     }
+
+    public function destroy($id)
+    {
+        $new = News::find($id);
+
+        if (!$new) {
+            return redirect('/admin/news/' . $id)
+                ->withErrors(['message' => 'Không tìm thấy tin tức']);
+        }
+
+        $new->delete();
+
+        return redirect('/admin/news/')->withSuccess('Xóa tin tức thành công!');
+    }
 }
