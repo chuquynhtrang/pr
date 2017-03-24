@@ -20,7 +20,7 @@ class UserController extends Controller
 
     public function index()
     {
-    	return redirect('user/projects');
+    	return redirect('user/news');
     }
 
     public function profile(User $user)
@@ -69,7 +69,7 @@ class UserController extends Controller
         if ($request->hasFile('document')) {
             $document = $request->file('document');
             $filename = $document->getClientOriginalName();
-            $request->file('document')->move(base_path() . '/public/diaries/', $filename);
+            $request->file('document')->move(base_path() . '/public/uploads/diaries/', $filename);
             $diary->document = $filename;
         }
         $diary->user_id = Auth::user()->id;

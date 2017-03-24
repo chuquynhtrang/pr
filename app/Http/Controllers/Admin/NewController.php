@@ -5,28 +5,50 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\News;
+use App\Models\FileNew;
 use Auth;
 
 class NewController extends Controller
 {
     public function index()
     {
-    	return view('admin.news.index');
+    	$news = News::orderBy('created_at', 'desc')->get();
+        $fileNews = FileNew::all();
+
+        return view('admin.news.index', compact('news', 'fileNews'));
+    }
+
+    public function create()
+    {
+        return view('admin.news.create');
     }
 
     public function store(Request $request) {
-    	$new = new News();
-    	$new->title = $request->title;
-    	$new->body = $request->body;
-    	$new->user_id = Auth::user()->id;
-    	$new->save();
+    	$new = [
+            'title' => $request->title,
+            'body' => $request->body,
+            'user_id' => Auth::user()->id,
+        ];
+
+    	$data = News::create($new);
+        if ($request->hasFile('file')) {
+            $files = $request->file;
+            foreach ($files as $key => $fileName) {
+                $file = $fileName;
+                $filename = $file->getClientOriginalName();
+                $fileName->move(base_path() . '/public/uploads/filenews', $filename);
+                $news[] = ['name' => $filename, 'new_id' => $data->id];
+            }
+            FileNew::insert($news);
+        }
 
     	return redirect('/admin/news')->withSuccess('Thêm tin tức thành công!');
     }
 
-    public function show() {
-    	$news = News::all();
+    public function show($id) {
+    	$new = News::find($id);
+        $fileNews = FileNew::all();
 
-    	return view('admin.news.show', compact('news'));
+        return view('admin.news.show', compact('new', 'fileNews'));
     }
 }

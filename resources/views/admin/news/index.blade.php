@@ -1,50 +1,34 @@
 @extends('layouts.app')
 
 @section('content')
-<div id="page-wrapper">
+<div id="page-wrapper" style="margin-top: 30px;">
     <div class="row">
-        <div class="row">
-            <div class="col-lg-12">
-                <h1 class="page-header">Thêm tin tức</h1>
-            </div>
-            <!-- /.col-lg-12 -->
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="panel panel-default">
-                <div class="panel-body">
-                    <form method="POST" action="{{url('admin/news')}}" enctype="multipart/form-data">
-                        {{csrf_field()}}
-                        <div class="form-group">
-                            <label class="col-md-2" for="name">Tiêu đề: </label>
-                            <div class="col-md-10">
-                                <input type="text" class="form-control" name="title">
-                            </div>
+        <div class="col-lg-1"></div>
+        <div class="col-lg-10">
+            @foreach($news as $new)
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4><b>{!! $new->title !!}</b></h4>
+                    </div>
+                    <div class="panel-body content-news">
+                            <p>{!! $new->body !!}</p>
+                    </div>
+                    <div class="panel-footer">
+                        <div class="pull-left">
+                            <i class="fa fa-clock-o fa-fw"></i>&nbsp; {{ $new->created_at }}&nbsp;&nbsp;
+                            @foreach($fileNews as $file)
+                                @if($file->new_id == $new->id)
+                                    <i class="fa fa-paperclip"></i>
+                                    <a href="http://localhost/testpr/public/uploads/filenews/{{$file->name}}" target="_blank">{{$file->name}}</a>
+                                @endif
+                            @endforeach
                         </div>
-                        <div class="form-group">
-                            <label class="col-md-2" for="name">Nội dung: </label>
-                            <div class="col-md-10">
-                                <textarea name="body" id="body" class="form-control"></textarea>
-                            </div>
+                        <div class="pull-right">
+                            <a href="{{ url('admin/news/'. $new->id) }}" class="btn btn-primary btn-sm">Đọc thêm</a>
                         </div>
-                        <div class="form-group">
-                            <label class="col-md-2 control-label" for="references" focus>Tài liệu</label>
-                            <div class="col-md-10">
-                                <input type="file" name="files" id="file-news">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-md-6"></div>
-                            <div class="col-md-3">
-                                <button name="create" class="btn btn-success">
-                                    Submit
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+                    </div>
                 </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </div>

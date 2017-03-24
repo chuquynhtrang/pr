@@ -100,3 +100,25 @@ a.disabled {
 #file-news {
 	margin-top: 10px;
 }
+
+.panel-footer {
+	height: 45px !important;
+}
+
+.add-files {
+	cursor: pointer;
+	padding: 10px;
+	color: blue;
+}
+
+.delete-files {
+	cursor: pointer;
+	padding: 10px;
+	color: red;
+}
+
+.info-news {
+	background-color: #EEEEEE;
+	height: 50px;
+	padding: 15px;
+}

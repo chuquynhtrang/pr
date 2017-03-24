@@ -11236,14 +11236,29 @@ __webpack_require__(35);
 Vue.component('example', __webpack_require__(39));
 
 var app = new Vue({
-  el: '#app'
+    el: '#app'
 });
 $(document).ready(function () {
-  $('#dataTables').DataTable();
-  $('.datatables').DataTable();
+    $('#dataTables').DataTable();
+    $('.datatables').DataTable();
+
+    $('.add-files').click(function () {
+        $('.files').append('<div class="col-md-2"></div>' + '<div class="col-md-10">' + '<div class="col-md-3">' + '<input type="file" name="file[]" id="file-news">' + '</div>' + '</div>');
+    });
 });
 
 $('.success_show').hide(2500);
+
+$('.content-news').each(function () {
+    var showChar = 500;
+    var ellipsestext = "...";
+    var content = $(this).html();
+    if (content.length > showChar) {
+        var c = content.substr(0, showChar);
+        var html = c + '<span>' + ellipsestext + '&nbsp;</span>';
+        $(this).html(html);
+    }
+});
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
