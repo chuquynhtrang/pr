@@ -19,4 +19,4 @@ mix.copy('node_modules/font-awesome/css/font-awesome.css', 'public/css/');
 mix.copy('node_modules/font-awesome/fonts', 'public/fonts');
 mix.copy('node_modules/datatables/media/css/jquery.dataTables.css', 'public/css/');
 mix.sass('resources/assets/sass/user.scss', 'public/css');
-mix.copy('resources/assets/js/user.js', 'public/js');
+mix.js('resources/assets/js/user.js', 'public/js');
