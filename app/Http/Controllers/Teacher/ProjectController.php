@@ -52,7 +52,7 @@ class ProjectController extends Controller
 
         $project->save();
 
-        return redirect('/teacher/projects')->withSuccess('Create Class Successfully!');
+        return redirect('/teacher/projects')->withSuccess('Thêm đề tài thành công!');
     }
 
 
@@ -62,7 +62,7 @@ class ProjectController extends Controller
 
         if (!$project) {
             return redirect('/teacher/projects')
-                ->withErrors(['message' => 'Not found class']);
+                ->withErrors(['message' => 'Không tìm thấy tên đề tài']);
         }
 
         return view('teacher.projects.edit')->with(
@@ -80,7 +80,7 @@ class ProjectController extends Controller
 
         if (!$project) {
             return redirect('/teacher/projects')
-                ->withErrors(['message' => 'Not found class']);
+                ->withErrors(['message' => 'Không tìm thấy tên đề tài']);
         }
 
         $project->name = $request->name;
