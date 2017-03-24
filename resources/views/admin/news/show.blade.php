@@ -20,7 +20,7 @@
 						@foreach($fileNews as $file)
 							@if($file->new_id == $new->id)
 								<i class="fa fa-paperclip"></i>
-								<a href="http://localhost/testpr/public/uploads/filenews/{{$file->name}}" target="_blank">{{$file->name}}</a>
+								<a href="http://localhost/pr/public/uploads/filenews/{{$file->name}}" target="_blank">{{$file->name}}</a>
 							@endif
 						@endforeach
 					</div>

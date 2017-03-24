@@ -64,7 +64,7 @@
                     <!-- /.nav-second-level -->
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-tasks fa-fw"></i>&nbsp;&nbsp;Kiểm tra tiến độ</a>
+                    <a href="{{url('teacher/progress')}}"><i class="fa fa-tasks fa-fw"></i>&nbsp;&nbsp;Kiểm tra tiến độ</a>
                 </li>
                 <li>
                     <a href="{{ url('user/forms') }}"><i class="fa fa-file-pdf-o fa-fw"></i>&nbsp;&nbsp;Biểu mẫu tham khảo</a>

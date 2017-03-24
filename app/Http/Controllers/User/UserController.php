@@ -65,13 +65,11 @@ class UserController extends Controller
     {
         $diary = new Diary();
         $diary->progress = $request->progress;
-        $diary->note = $request->note;
-        if ($request->hasFile('document')) {
-            $document = $request->file('document');
-            $filename = $document->getClientOriginalName();
-            $request->file('document')->move(base_path() . '/public/uploads/diaries/', $filename);
-            $diary->document = $filename;
-        }
+        $diary->complete = $request->complete;
+        $diary->not_complete = $request->not_complete;
+        $diary->advantage = $request->advantage;
+        $diary->difficult = $request->difficult;
+        $diary->expected = $request->expected;
         $diary->user_id = Auth::user()->id;
 
         $diary->save();

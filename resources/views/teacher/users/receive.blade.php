@@ -4,13 +4,10 @@
 <div id="page-wrapper">
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">Danh sách sinh viên chờ phê duyệt</h1>
+            <h1 class="page-header">Danh sách sinh viên đã nhận</h1>
         </div>
         <!-- /.col-lg-12 -->
     </div>
-
-    <hr>
-
     @foreach($projects as $project)
         <h3>Đề tài: {{$project->name}}</h3>
         <div class="row">

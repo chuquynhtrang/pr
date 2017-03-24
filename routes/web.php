@@ -62,6 +62,7 @@ Route::group(['prefix' => 'teacher', 'namespace' => 'Teacher'], function() {
 	Route::get('/users/wait', 'UserController@wait');
 	Route::get('/users/receive', 'UserController@receive');
 	Route::get('/users/{user}', 'UserController@show');
+	Route::get('/progress', 'UserController@progress');
 	Route::post('/projects/{project}/users/{user}/approve', 'ProjectController@approve');
 	Route::get('/forms', 'FormController@index');
 });
