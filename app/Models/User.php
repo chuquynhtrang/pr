@@ -56,4 +56,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Diary::class);
     }
+
+    public function getDiaries($userId)
+    {
+        return Diary::whereUserId($userId)->orderBy('created_at', 'desc')->limit(3)->get();
+    }
 }

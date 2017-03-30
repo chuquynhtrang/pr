@@ -102,11 +102,7 @@ class UserController extends Controller
     public function progress()
     {
         $userProjects = UserProject::whereStatus(2)->get();
-        // foreach ($userProjects as $pr) {
-        //     foreach($pr->user->diaries as $dr) {
-        //         echo $dr;
-        //     }
-        // }
+
         return view('admin.progress', compact('userProjects'));
     }
 }

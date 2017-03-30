@@ -28,12 +28,15 @@
                                     <td>{{ $userProject->user->name }}</td>
                                     <td>{{ $userProject->project->name }}</td>
                                     <td>
-                                        @foreach($userProject->user->diaries as $diary)
-                                            <p>{{ $diary->progress }}&nbsp;%</p>
+                                        @foreach($userProject->user->getDiaries($userProject->user_id) as $diary)
+                                            <p class="progress-bar active" role="progressbar"
+                                                aria-valuenow="{{ $diary->progress }}" aria-valuemin="0" aria-valuemax="100" style="width:{{ $diary->progress }}%;">
+                                                {{ $diary->progress }}%
+                                            </p>
                                         @endforeach
                                     </td>
                                     <td>
-                                        @foreach($userProject->user->diaries as $diary)
+                                        @foreach($userProject->user->getDiaries($userProject->user_id) as $diary)
                                             <p>{{ $diary->updated_at }}</p>
                                         @endforeach
                                     </td>
