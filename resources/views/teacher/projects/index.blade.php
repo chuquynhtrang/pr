@@ -48,7 +48,7 @@
                                 <tr>
                                     <td>{{ $project->id }}</td>
                                     <td>{{ $project->name }}</td>
-                                    <td>{{ $project->description }}</td>
+                                    <td class="text-description">{{ $project->description }}</td>
                                     <td>
                                         <a href="http://localhost/pr/public/uploads/references/{{$project->references}}" target="_blank">{{ $project->references }}</a>
                                     </td>

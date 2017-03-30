@@ -45,7 +45,6 @@ class ProjectController extends Controller
                 $check = 2;
             }
         }
-
         $userWait = UserProject::where('project_id', $id)->where('status', 1)->get();
         $userReceive = UserProject::where('project_id', $id)->where('status', 2)->get();
 

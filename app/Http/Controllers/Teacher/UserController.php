@@ -37,18 +37,13 @@ class UserController extends Controller
 
     public function progress()
     {
-        $projects = Project::whereTeacherId(Auth::user()->id)->get();
-        // dd($project);
+        $projects = UserProject::with(['project' => function ($query) {
+            $query->whereTeacherId(Auth::user()->id);
+        }])->whereStatus(2)->get();
         foreach ($projects as $project) {
-            $userProjects[] = UserProject::whereProjectId($project->id)->whereStatus(2)->get();
+            $diaries[] = Diary::whereUserId($project->user_id)->get();
         }
-        
-        foreach ($userProjects as $key => $value) {
-            foreach($value as $up) {
-                $diaries[] = Diary::whereUserId($up->user_id)->get();
-            }
-        }
-        
+
         return view('teacher.users.progress', compact('projects', 'diaries'));
 
     }

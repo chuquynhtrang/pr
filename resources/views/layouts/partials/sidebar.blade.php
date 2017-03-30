@@ -42,7 +42,7 @@
                     <a href="{{ url('admin/forms') }}"><i class="fa fa-file-text-o fa-fw"></i>&nbsp;&nbsp;Quản lý biểu mẫu</a>
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-tasks fa-fw"></i>&nbsp;&nbsp;Kiểm tra tiến độ</a>
+                    <a href="{{ url('admin/progress') }}"><i class="fa fa-tasks fa-fw"></i>&nbsp;&nbsp;Kiểm tra tiến độ</a>
                 </li>
                 <li>
                     <a href="{{ url('/admin/councils') }}"><i class="fa fa-address-card fa-fw"></i>&nbsp;&nbsp;Quản lý hội đồng bảo vệ</a>

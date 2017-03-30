@@ -4,8 +4,11 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Cloudder;
+use App\Models\UserProject;
 use App\Models\User;
+use App\Models\Project;
+use App\Models\Diary;
+use Cloudder;
 use Excel;
 
 class UserController extends Controller
@@ -94,5 +97,16 @@ class UserController extends Controller
         }
 
         return redirect('admin/users/'. $role)->withSuccess('Import thành công');
+    }
+
+    public function progress()
+    {
+        $userProjects = UserProject::whereStatus(2)->get();
+        // foreach ($userProjects as $pr) {
+        //     foreach($pr->user->diaries as $dr) {
+        //         echo $dr;
+        //     }
+        // }
+        return view('admin.progress', compact('userProjects'));
     }
 }
