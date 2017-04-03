@@ -41,7 +41,7 @@ class UserController extends Controller
             $query->whereTeacherId(Auth::user()->id);
         }])->whereStatus(2)->get();
         foreach ($projects as $project) {
-            $diaries[] = Diary::whereUserId($project->user_id)->get();
+            $diaries[] = Diary::whereUserId($project->user_id)->orderBy('created_at', 'desc')->limit(3)->get();
         }
 
         return view('teacher.users.progress', compact('projects', 'diaries'));

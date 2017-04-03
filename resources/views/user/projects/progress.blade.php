@@ -80,7 +80,7 @@
                                 </div>
                             </div>
                             <div class="pull-right">
-                                <button class="btn btn-default btn-sm view_diary" onclick="viewDiary({{$diary->id}})">View&nbsp;<i class="fa fa-angle-double-down"></i></button>
+                                <button class="btn btn-default btn-sm view_diary" onclick="viewDiary({{$diary->id}})">Chi tiết&nbsp;<i class="fa fa-angle-double-down"></i></button>
                             </div>
                             <div class="progress-text-{{$diary->id}}" style="display: none; margin-top: 60px;">
                                 <div class="form-group">
@@ -112,6 +112,9 @@
                                     <div class="col-md-9">
                                         <p>{{$diary->expected}}</p>
                                     </div>
+                                </div>
+                                <div class="pull-right">
+                                    <a href="{{ url('user/progress/'. $diary->id) }}" class="btn btn-primary btn-sm">In tiến độ</a>
                                 </div>
                             </div>
                         </div>

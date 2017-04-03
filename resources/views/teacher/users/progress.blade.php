@@ -18,7 +18,7 @@
                     <div class="panel-heading">Ngày cập nhật: {{ $diary->created_at }}</div>
                     <div class="panel-body progress-details">
                         <div class="progress">
-                            <div class="progress-bar progress-bar-striped active" role="progressbar"
+                            <div class="progress-bar active" role="progressbar"
                                 aria-valuenow="{{ $diary->progress }}" aria-valuemin="0" aria-valuemax="100" style="width:{{ $diary->progress }}%">
                                 {{ $diary->progress }}%
                             </div>

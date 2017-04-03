@@ -61,7 +61,7 @@ class UserController extends Controller
         return view('user.projects.progress', compact('userProjects', 'diaries'));
     }
 
-    public function updateProgress(Request $request) 
+    public function updateProgress(Request $request)
     {
         $diary = new Diary();
         $diary->progress = $request->progress;
@@ -75,5 +75,13 @@ class UserController extends Controller
         $diary->save();
 
         return redirect('/user/progress')->withSuccess('Cập nhật thành công');
+    }
+
+    public function showDiary($diaryId)
+    {
+        $userProject = UserProject::with('project', 'user')->where('user_id', Auth::user()->id)->where('status', 2)->orderBy('id', 'desc')->get();
+        $diary = Diary::find($diaryId);
+        // dd($userProject);
+        return view('user.customizeform', compact('userProject', 'diary'));
     }
 }

@@ -126,6 +126,6 @@ class ProjectController extends Controller
             $userProject->save();
         }
 
-        return redirect('teacher/users/wait');
+        return redirect('teacher/users/receive');
     }
 }

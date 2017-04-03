@@ -33,6 +33,7 @@
                                                 aria-valuenow="{{ $diary->progress }}" aria-valuemin="0" aria-valuemax="100" style="width:{{ $diary->progress }}%;">
                                                 {{ $diary->progress }}%
                                             </p>
+                                            <hr>
                                         @endforeach
                                     </td>
                                     <td>
