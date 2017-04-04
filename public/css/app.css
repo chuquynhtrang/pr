@@ -8446,3 +8446,7 @@ a.disabled {
   max-width: 300px;
   word-wrap: break-word;
 }
+
+.progress {
+  height: 10px;
+}

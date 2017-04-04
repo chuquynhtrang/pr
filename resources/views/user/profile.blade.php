@@ -20,7 +20,7 @@
                             <input name="_method" type="hidden" value="PUT">
                             <div class="col-md-4 col-sm-6 col-xs-12">
                                 <div class="text-center">
-                                    <img id="show_avatar" src="{{ $user->avatar }}">
+                                    <img id="show_avatar" src="{{ isset($user->avatar) ? $user->avatar : config('common.image_default') }}">
                                     <h6> Chọn ảnh </h6>
                                     <input type="file" name="avatar" class="text-center center-block well well-sm">
                                 </div>

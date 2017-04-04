@@ -76,13 +76,18 @@
                             <div class="progress">
                                 <div class="progress-bar progress-bar-striped active" role="progressbar"
                                     aria-valuenow="{{ $diary->progress }}" aria-valuemin="0" aria-valuemax="100" style="width:{{ $diary->progress }}%">
-                                    {{ $diary->progress }}%
                                 </div>
                             </div>
                             <div class="pull-right">
                                 <button class="btn btn-default btn-sm view_diary" onclick="viewDiary({{$diary->id}})">Chi tiết&nbsp;<i class="fa fa-angle-double-down"></i></button>
                             </div>
                             <div class="progress-text-{{$diary->id}}" style="display: none; margin-top: 60px;">
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label" for="complete">% Hoàn thành: </label>
+                                    <div class="col-md-9">
+                                        <p>{{$diary->progress}}&nbsp;%</p>
+                                    </div>
+                                </div>
                                 <div class="form-group">
                                     <label class="col-md-3 control-label" for="complete">Hoàn thành: </label>
                                     <div class="col-md-9">

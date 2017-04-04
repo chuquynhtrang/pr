@@ -6,7 +6,7 @@
             </li>
             <li class="dropdown" id="link_profile">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                    <img src="{{Auth::user()->avatar}}" id="profile_avatar"><i class="fa fa-caret-down"></i>
+                    <img src="{{ isset(Auth::user()->avatar) ? Auth::user()->avatar : config('common.image_default') }}" id="profile_avatar"><i class="fa fa-caret-down"></i>
                 </a>
                 <ul class="dropdown-menu dropdown-user">
                     <li>

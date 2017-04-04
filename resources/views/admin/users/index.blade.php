@@ -48,7 +48,7 @@
                                 <tr>
                                     <td>{{ $user->id }}</td>
                                     <td>
-                                        <a href="{{url('/admin/users/'. $role . '/show/' . $user->id) }}"><img src="{{ $user->avatar }}"  class="user_avatar"></a>
+                                        <a href="{{url('/admin/users/'. $role . '/show/' . $user->id) }}"><img src="{{ isset($user->avatar) ? $user->avatar : config('common.image_default') }}"  class="user_avatar"></a>
                                     </td>
                                     <td>{{ $user->name }}</td>
                                     <td>

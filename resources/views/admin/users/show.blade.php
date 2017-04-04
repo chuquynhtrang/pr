@@ -3,15 +3,14 @@
 @section('content')
 <div id="page-wrapper">
     <div class="row">
-        <h2>Thông tin người dùng</h2>
-        <hr>
         <div class="col-md-12">
-            <a href="{{ url('admin/users/'.$role)}}" class="btn btn-default btn-md"><i class="fa fa-chevron-left"></i>&nbsp;Back</a>
+            <h2>Thông tin người dùng</h2>
+            <a href="{{ url('admin/users/'.$role)}}" class="btn btn-default btn-sm"><i class="fa fa-chevron-left"></i>&nbsp;Quay lại</a>
         </div>
         <div class="col-md-4">
             <div class="col-md-2"></div>
             <div class="col-md-2" align="center">
-                <img alt="User Pic" src="{{ $user->avatar }}" id="show_avatar">
+                <img alt="User Pic" src="{{ isset($user->avatar) ? $user->avatar : config('common.image_default') }}" id="show_avatar">
             </div>
         </div>
         <div class="col-md-8">

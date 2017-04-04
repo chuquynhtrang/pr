@@ -14,6 +14,9 @@
     @include('layouts.partials.success')
     <div class="row">
         <div class="col-lg-12">
+            <a href="{{ url('admin/news') }}" class="btn btn-default btn-sm" style="margin-bottom: 10px;">
+                Xem tin tức&nbsp;<i class="fa fa-angle-double-right fa-fw"></i>
+            </a><br>
             <div class="panel panel-default">
                 <div class="panel-body">
                     <form method="POST" action="{{url('admin/news')}}" enctype="multipart/form-data">

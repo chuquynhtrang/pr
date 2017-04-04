@@ -25,8 +25,8 @@
                                 <th>Giảng viên</th>
                                 <th>Hướng thực hiện</th>
                                 <th>Tài liệu tham khảo</th>
-                                <th>Created At</th>
-                                <th>Updated At</th>
+                                <th>Ngày tạo</th>
+                                <th>Ngày cập nhật</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -35,7 +35,7 @@
                                     <td>{{ $project->id }}</td>
                                     <td>{{ $project->name }}</td>
                                     <td>{{ $project->user->name }}</td>
-                                    <td class="text-description">{{ $project->description }}</td>
+                                    <td>{{ $project->description }}</td>
                                     <td>
                                         <a href="http://localhost/pr/public/uploads/references/{{$project->references}}" target="_blank">{{ $project->references }}</a>
                                     </td>
