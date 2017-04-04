@@ -18,8 +18,8 @@
                             <i class="fa fa-check-circle-o fa-5x"></i>
                         </div>
                         <div class="col-xs-9 text-right">
-                            <div class="huge">26</div>
-                            <div>Sinh viên đăng kí đã đồ án</div>
+                            <div class="huge">{{ $userRegisted }}</div>
+                            <div>Sinh viên đã đăng kí</div>
                         </div>
                     </div>
                 </div>
@@ -40,8 +40,8 @@
                             <i class="fa fa-ban fa-5x"></i>
                         </div>
                         <div class="col-xs-9 text-right">
-                            <div class="huge">12</div>
-                            <div>Sinh viên chưa đăng kí đồ án</div>
+                            <div class="huge">{{ $userUnRregistered }}</div>
+                            <div>Sinh viên chưa đăng kí</div>
                         </div>
                     </div>
                 </div>
@@ -62,8 +62,8 @@
                             <i class="fa fa-window-close-o fa-5x"></i>
                         </div>
                         <div class="col-xs-9 text-right">
-                            <div class="huge">124</div>
-                            <div>Đồ án chưa được đăng kí</div>
+                            <div class="huge">{{ $projectUnRegistered }}</div>
+                            <div>Đồ án chưa đăng kí</div>
                         </div>
                     </div>
                 </div>
@@ -84,8 +84,8 @@
                             <i class="fa fa-window-maximize fa-5x"></i>
                         </div>
                         <div class="col-xs-9 text-right">
-                            <div class="huge">13</div>
-                            <div>Đồ án đã được phê duyệt</div>
+                            <div class="huge">{{ $projectRegisted }}</div>
+                            <div>Đồ án đã đăng kí</div>
                         </div>
                     </div>
                 </div>

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Models\UserProject;
+use App\Models\Project;
 use Cloudder;
 
 class AdminController extends Controller
@@ -27,9 +28,12 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $userProjects = UserProject::all()->groupBy('user_id')->count();
+        $userRegisted = UserProject::all()->groupBy('user_id')->count();
+        $userUnRregistered = User::whereRole(0)->count() - $userRegisted;
+        $projectRegisted = UserProject::all()->groupBy('project_id')->count();
+        $projectUnRegistered = Project::all()->count() - $projectRegisted;
 
-        return view('admin.dashboard.index');
+        return view('admin.dashboard.index', compact('userRegisted', 'userUnRregistered', 'projectRegisted', 'projectUnRegistered'));
     }
 
     public function profile(User $user)
