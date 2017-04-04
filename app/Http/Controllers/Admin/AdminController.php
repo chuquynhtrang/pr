@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\UserProject;
 use Cloudder;
 
 class AdminController extends Controller
@@ -26,6 +27,8 @@ class AdminController extends Controller
      */
     public function index()
     {
+        $userProjects = UserProject::all()->groupBy('user_id')->count();
+
         return view('admin.dashboard.index');
     }
 
