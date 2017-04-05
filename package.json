@@ -22,6 +22,7 @@
     "datatables": "^1.10.13",
     "font-awesome": "^4.7.0",
     "jquery": "^3.2.1",
+    "lazyload": "^1.8.4",
     "metismenu": "^2.7.0",
     "npm-cli": "^0.1.0",
     "sb-admin-2": "^3.3.8"

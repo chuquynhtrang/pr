@@ -4,7 +4,7 @@
 <div id="page-wrapper">
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">Users</h1>
+            <h1 class="page-header">Quản lý người dùng</h1>
         </div>
         <!-- /.col-lg-12 -->
     </div>
@@ -21,14 +21,13 @@
             <button type="submit" class="btn btn-success btn-sm"><i class="fa fa-download"></i>&nbsp;Import</button>
         </div>
     </form>
-
-    <hr>
+    <a href="{{ url('admin/users/'. $role .'/create') }}" class="pull-right btn btn-sm btn-primary" style="margin-bottom: 10px;">Thêm mới</a>
 
     <div class="row">
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading table-panel">
-                    User Tables
+                    Danh sách người dùng
                 </div>
                 <!-- /.panel-heading -->
                 <div class="panel-body">
@@ -46,7 +45,7 @@
                         <tbody>
                             @foreach ($users as $user)
                                 <tr>
-                                    <td>{{ $user->id }}</td>
+                                    <td>{{ $user->user_code }}</td>
                                     <td>
                                         <a href="{{url('/admin/users/'. $role . '/show/' . $user->id) }}"><img src="{{ isset($user->avatar) ? $user->avatar : config('common.image_default') }}"  class="user_avatar"></a>
                                     </td>

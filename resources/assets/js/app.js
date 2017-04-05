@@ -48,3 +48,4 @@ $('.content-news').each(function() {
         $(this).html(html);
     }
 });
+

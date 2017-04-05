@@ -37,10 +37,8 @@
                                 <th>Tên đề tài</th>
                                 <th>Hướng thực hiện</th>
                                 <th>Tài liệu tham khảo</th>
-                                <th>Created At</th>
-                                <th>Updated At</th>
-                                <th>Edit</th>
-                                <th>Delete</th>
+                                <th>Sửa</th>
+                                <th>Xóa</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -48,12 +46,10 @@
                                 <tr>
                                     <td>{{ $project->id }}</td>
                                     <td>{{ $project->name }}</td>
-                                    <td class="text-description">{{ $project->description }}</td>
+                                    <td>{{ $project->description }}</td>
                                     <td>
                                         <a href="http://localhost/pr/public/uploads/references/{{$project->references}}" target="_blank">{{ $project->references }}</a>
                                     </td>
-                                    <td>{{ $project->created_at }}</td>
-                                    <td>{{ $project->updated_at }}</td>
                                     <td>
                                         <a href="{{ url('/teacher/projects/' . $project->id . '/edit') }}" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></a>
                                     </td>

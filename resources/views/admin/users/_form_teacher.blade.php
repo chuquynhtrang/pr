@@ -1,4 +1,10 @@
 <div class="form-group">
+	<label class="col-md-3 control-label" for="user_code" focus>Mã giảng viên</label>
+	<div class="col-md-3">
+		<input type="text" name="user_code" class="form-control" required="">
+	</div>
+</div>
+<div class="form-group">
 	<label class="col-md-3 control-label" for="name" focus>Tên</label>
 	<div class="col-md-3">
 		<input type="text" name="name" class="form-control" required="">
@@ -11,9 +17,9 @@
     </div>
 </div>
 <div class="form-group">
-    <label class="col-md-3 control-label" for="email">Ngày sinh</label>
+    <label class="col-md-3 control-label" for="date_of_birth">Ngày sinh</label>
     <div class="col-md-3">
-        <input type="date" name="email" class="form-control" required="">
+        <input type="date" name="date_of_birth" class="form-control" required="">
     </div>
 </div>
 <div class="form-group">
@@ -33,6 +39,12 @@
 	<label class="col-md-3 control-label" for="phone">Số điện thoại</label>
 	<div class="col-md-3">
 		<input type="text" name="phone" class="form-control" required="">
+	</div>
+</div>
+<div class="form-group">
+	<label class="col-md-3 control-label" for="workplace">Nơi làm việc</label>
+	<div class="col-md-3">
+		<input type="text" name="workplace" class="form-control" required="">
 	</div>
 </div>
 <div class="form-group">

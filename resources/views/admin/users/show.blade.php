@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-12">
             <h2>Thông tin người dùng</h2>
-            <a href="{{ url('admin/users/'.$role)}}" class="btn btn-default btn-sm"><i class="fa fa-chevron-left"></i>&nbsp;Quay lại</a>
+            <a href="{{ url('admin/users/'.$role)}}" class="btn btn-default btn-sm"><i class="fa fa-angle-double-left fa-fw"></i>&nbsp;Quay lại</a>
         </div>
         <div class="col-md-4">
             <div class="col-md-2"></div>
@@ -18,6 +18,10 @@
             <div class=" col-md-9 col-lg-9 ">
                 <table class="table table-user-information">
                     <tbody>
+                        <tr>
+                            <td>Mã</td>
+                            <td>{{ $user->user_code }}</td>
+                        </tr>
                         <tr>
                             <td>Tên</td>
                             <td>{{ $user->name }}</td>
@@ -35,6 +39,16 @@
                             <td>Số điện thoại</td>
                             <td>{{ $user->phone }}</td>
                         </tr>
+                    @if($user->role == 2)
+                        <tr>
+                            <td>Nơi làm việc</td>
+                            <td>{{ $user->workplace }}</td>
+                        </tr>
+                        <tr>
+                            <td>Học vị</td>
+                            <td>{{ $user->position ? 'Tiến sĩ' : 'Thạc sĩ' }}</td>
+                        </tr>
+                    @elseif($user->role == 0)
                         <tr>
                             <td>Khóa học</td>
                             <td>{{ $user->course}}</td>
@@ -47,6 +61,7 @@
                             <td>Điểm số</td>
                             <td>{{ $user->score }}</td>
                         </tr>
+                    @endif
                     </tbody>
                 </table>
             </div>

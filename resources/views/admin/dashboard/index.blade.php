@@ -99,17 +99,19 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-4">
+            <div class="col-lg-7">
                 <canvas id="line-project"></canvas>
             </div>
-            <div class="col-lg-2">
+            <div class="col-lg-3 col-lg-offset-1">
                 <canvas id="pie-user"></canvas>
             </div>
-            <div class="col-lg-2">
-                <canvas id="pie-project"></canvas>
-            </div>
-            <div class="col-lg-4">
+        </div>
+        <div class="row">
+            <div class="col-lg-7">
                 <canvas id="line-diary"></canvas>
+            </div>
+            <div class="col-lg-3 col-lg-offset-1">
+                <canvas id="pie-project"></canvas>
             </div>
         </div>
     </div>
@@ -184,14 +186,14 @@ var pie = new Chart(project, {
 
 var ctx = document.getElementById("line-diary");
 var myChart = new Chart(ctx, {
-    type: 'line',
+    type: 'bar',
     data: {
         labels: {!!json_encode($dateDiary)!!},
         datasets: [{
             label: 'Lượng sinh viên cập nhật tiến độ',
             data: {!!json_encode($countDiary)!!},
             backgroundColor: [
-                '#F8BBD0'
+                '#01579B'
             ]
         }]
     }

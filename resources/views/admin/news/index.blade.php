@@ -6,7 +6,7 @@
         <div class="col-lg-1"></div>
         <div class="col-lg-10">
             @foreach($news as $new)
-                <div class="panel panel-default">
+                <div class="panel panel-default body-news">
                     <div class="panel-heading">
                         <h4><b>{!! $new->title !!}</b></h4>
                     </div>
@@ -29,6 +29,9 @@
                     </div>
                 </div>
             @endforeach
+            <div class="pull-right">
+                {{ $news->links() }}
+            </div>
         </div>
     </div>
 </div>

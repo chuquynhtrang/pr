@@ -29,26 +29,31 @@ class UserController extends Controller
     public function store(Request $request, $role)
     {
         $user = new User();
+        $user->user_code = $request->user_code;
         $user->name = $request->name;
         $user->email = $request->email;
         $user->password = bcrypt('123456');
-        $user->birthday = $request->birthday;
+        $user->date_of_birth = $request->date_of_birth;
         $user->gender = $request->gender;
         $user->address = $request->address;
         $user->phone = $request->phone;
         $user->role = $role;
-        $user->avatar = 'images/default.png';
         if ($role == 0) {
             $user->course = $request->course;
             $user->class = $request->class;
             $user->score = $request->score;
         } elseif ($role == 2) {
+            $user->workplace = $request->workplace;
             $user->position = $request->position;
         }
 
         $user->save();
 
         return redirect('/admin/users/'. $role)->withSuccess('Create User Successfully!');
+    }
+
+    public function edit(Request $request, $role, $id) {
+
     }
 
     public function show($role, $id)
