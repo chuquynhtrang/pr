@@ -40,7 +40,7 @@ class AdminController extends Controller
         $diaries = Diary::select(DB::raw('DATE(created_at) as date'), DB::raw('count(*) as count'))->groupBy('date')->get()->toArray();
         $dateDiary = array_column($diaries, 'date');
         $countDiary = array_column($diaries, 'count');
-        dd(json_encode($dateDiary));
+        // dd(json_encode($dateDiary));
 
         return view('admin.dashboard.index', compact(
             'userRegisted',

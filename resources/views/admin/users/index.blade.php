@@ -35,12 +35,12 @@
                     <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables">
                         <thead>
                             <tr>
-                                <th>ID</th>
-                                <th>Avatar</th>
-                                <th>Name</th>
-                                <th>Details</th>
-                                <th>Edit</th>
-                                <th>Delete</th>
+                                <th>Mã</th>
+                                <th>Ảnh đại diện</th>
+                                <th>Tên</th>
+                                <th>Chi tiết</th>
+                                <th>Sửa</th>
+                                <th>Xóa</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -52,7 +52,7 @@
                                     </td>
                                     <td>{{ $user->name }}</td>
                                     <td>
-                                        <a href="{{url('/admin/users/'. $role . '/show/' . $user->id) }}" class="btn btn-default btn-sm"><i class="fa fa-info-circle"></i>&nbsp;View</a>
+                                        <a href="{{url('/admin/users/'. $role . '/show/' . $user->id) }}" class="btn btn-default btn-sm"><i class="fa fa-info-circle"></i>&nbsp;Xem</a>
                                     </td>
                                     <td>
                                         <a href="" class="edit btn btn-primary btn-sm"><i class="fa fa-edit"></i></a>

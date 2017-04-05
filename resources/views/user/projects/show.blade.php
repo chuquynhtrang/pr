@@ -61,7 +61,7 @@
                                         <td>{{ $up->user->id }}</td>
                                         <td>{{ $up->user->name }}</td>
                                         <td>
-                                            <a href="#"><img src="{{ $up->user->avatar }}"  class="user_avatar"></a>
+                                            <a href="#"><img src="{{ isset($up->user->avatar) ? $up->user->avatar : config('common.image_default') }}"  class="user_avatar"></a>
                                         </td>
                                         <td>{{ $up->user->course }}</td>
                                         <td>{{ $up->user->class }}</td>
@@ -100,7 +100,7 @@
                                         <td>{{ $up->user->id }}</td>
                                         <td>{{ $up->user->name }}</td>
                                         <td>
-                                            <a href="#"><img src="{{ $up->user->avatar }}"  class="user_avatar"></a>
+                                            <a href="#"><img src="{{ isset($up->user->avatar) ? $up->user->avatar : config('common.image_default') }}"  class="user_avatar"></a>
                                         </td>
                                         <td>{{ $up->user->course }}</td>
                                         <td>{{ $up->user->class }}</td>

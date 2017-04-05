@@ -99,7 +99,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-6">
+            <div class="col-lg-4">
                 <canvas id="line-project"></canvas>
             </div>
             <div class="col-lg-2">
@@ -108,9 +108,7 @@
             <div class="col-lg-2">
                 <canvas id="pie-project"></canvas>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-6">
+            <div class="col-lg-4">
                 <canvas id="line-diary"></canvas>
             </div>
         </div>
