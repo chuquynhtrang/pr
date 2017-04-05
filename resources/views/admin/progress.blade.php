@@ -54,3 +54,11 @@
     </div>
 </div>
 @endsection
+
+@section('script')
+    <script type="text/javascript">
+        function viewDiary($id) {
+            $('.progress-text-' + $id).toggle();
+        }
+    </script>
+@endsection

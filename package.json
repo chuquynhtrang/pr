@@ -17,9 +17,11 @@
     "webpack": "2.2.1"
   },
   "dependencies": {
+    "chart.js": "^2.5.0",
     "ckeditor": "^4.6.2",
     "datatables": "^1.10.13",
     "font-awesome": "^4.7.0",
+    "jquery": "^3.2.1",
     "metismenu": "^2.7.0",
     "npm-cli": "^0.1.0",
     "sb-admin-2": "^3.3.8"

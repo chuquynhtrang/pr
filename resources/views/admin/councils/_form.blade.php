@@ -6,9 +6,11 @@
                 {!! $input !!}
                 <div class="form-group">
                     <label for="name">Địa điểm: </label>
-                    <input class="form-control" id="input-name" value="{{ isset($council) ? $council->name : '' }}" name="name">
+                    <input class="form-control" id="input-name" value="{{ isset($council) ? $council->place : '' }}" name="place">
                 </div>
-                <button type="submit" class="btn btn-danger">Cập nhật</button>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary form-control">Cập nhật</button>
+                </div>
             </form>
         </div>
     </div>

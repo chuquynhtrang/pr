@@ -40,7 +40,6 @@
                 @include('layouts.partials.sidebar')
             @endif
         </nav>
-
         @yield('content')
     </div>
 
@@ -49,11 +48,7 @@
     <script src="https://cdn.ckeditor.com/4.6.2/standard/ckeditor.js"></script>
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/sb-admin-2.js') }}"></script>
-    <script type="text/javascript">
-        function viewDiary($id) {
-            $('.progress-text-' + $id).toggle();
-        }
-        CKEDITOR.replace('body');
-    </script>
+    <script src="{{ asset('js/Chart.js') }}"></script>
+    @yield('script')
 </body>
 </html>

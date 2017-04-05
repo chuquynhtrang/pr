@@ -14,7 +14,7 @@
 			    @include('layouts.partials.success')
 		        <div class="panel panel-default">
 		            <div class="panel-heading table-panel">
-		                Edit Council
+		                Cập nhật hội đồng bảo vệ
 		            </div>
 	    			@include('admin.councils._form')
 	    		</div>

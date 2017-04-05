@@ -43,15 +43,15 @@
                                 <th>Địa điểm</th>
                                 <th>Ngày tạo</th>
                                 <th>Ngày sửa</th>
-                                <th>Edit</th>
-                                <th>Delete</th>
+                                <th>Sửa</th>
+                                <th>Xóa</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($councils as $council)
                                 <tr>
                                     <td>{{ $council->id }}</td>
-                                    <td>{{ $council->name }}</td>
+                                    <td>{{ $council->place }}</td>
                                     <td>{{ $council->created_at }}</td>
                                     <td>{{ $council->updated_at }}</td>
                                     <td>

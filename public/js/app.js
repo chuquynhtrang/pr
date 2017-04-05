@@ -11215,18 +11215,17 @@ module.exports = g;
 /* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function($) {
+/* WEBPACK VAR INJECTION */(function(__webpack_provided_window_dot_jQuery, $) {
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
  */
-
+window.$ = __webpack_provided_window_dot_jQuery = __webpack_require__(1);
 __webpack_require__(33);
 __webpack_require__(38);
 var dt = __webpack_require__(36);
 __webpack_require__(35);
-
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -11259,7 +11258,7 @@ $('.content-news').each(function () {
         $(this).html(html);
     }
 });
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(1)))
 
 /***/ }),
 /* 11 */,

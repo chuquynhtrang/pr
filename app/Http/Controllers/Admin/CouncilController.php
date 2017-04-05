@@ -23,14 +23,14 @@ class CouncilController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'name' => 'required|unique:councils',
+            'place' => 'required|unique:councils',
         ]);
 
         $council = new Council();
-        $name = $request->only('name');
-        $council->create($name);
+        $place = $request->only('place');
+        $council->create($place);
 
-        return redirect('/admin/councils')->withSuccess('Create Council Successfully!');
+        return redirect('/admin/councils')->withSuccess('Thêm thành công!');
     }
 
 
@@ -62,13 +62,13 @@ class CouncilController extends Controller
         }
 
         $this->validate($request, [
-            'name' => 'required|unique:councils',
+            'place' => 'required|unique:councils',
         ]);
 
-        $request = $request->only('name');
+        $request = $request->only('place');
         $council->update($request);
 
-        return redirect('/admin/councils')->withSuccess('Update Council Successfully!');
+        return redirect('/admin/councils')->withSuccess('Cập nhật thành công');
     }
 
     public function destroy($id)
@@ -82,6 +82,6 @@ class CouncilController extends Controller
 
         $council->delete();
 
-        return redirect('/admin/councils')->withSuccess('Delete Council Successfully!');
+        return redirect('/admin/councils')->withSuccess('Xóa thành công!');
     }
 }

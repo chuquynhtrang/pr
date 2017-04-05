@@ -7,7 +7,9 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Models\UserProject;
 use App\Models\Project;
+use App\Models\Diary;
 use Cloudder;
+use DB;
 
 class AdminController extends Controller
 {
@@ -29,11 +31,28 @@ class AdminController extends Controller
     public function index()
     {
         $userRegisted = UserProject::all()->groupBy('user_id')->count();
-        $userUnRregistered = User::whereRole(0)->count() - $userRegisted;
+        $userUnRegistered = User::whereRole(0)->count() - $userRegisted;
         $projectRegisted = UserProject::all()->groupBy('project_id')->count();
         $projectUnRegistered = Project::all()->count() - $projectRegisted;
+        $projects = Project::select(DB::raw('DATE(created_at) as date'), DB::raw('count(*) as count'))->groupBy('date')->get()->toArray();
+        $dateProject = array_column($projects, 'date');
+        $countProject = array_column($projects, 'count');
+        $diaries = Diary::select(DB::raw('DATE(created_at) as date'), DB::raw('count(*) as count'))->groupBy('date')->get()->toArray();
+        $dateDiary = array_column($diaries, 'date');
+        $countDiary = array_column($diaries, 'count');
+        dd(json_encode($dateDiary));
 
-        return view('admin.dashboard.index', compact('userRegisted', 'userUnRregistered', 'projectRegisted', 'projectUnRegistered'));
+        return view('admin.dashboard.index', compact(
+            'userRegisted',
+            'userUnRegistered',
+            'projectRegisted',
+            'projectUnRegistered',
+            'dateProject',
+            'countProject',
+            'dateDiary',
+            'countDiary'
+            )
+        );
     }
 
     public function profile(User $user)

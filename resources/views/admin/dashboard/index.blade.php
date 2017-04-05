@@ -40,7 +40,7 @@
                             <i class="fa fa-ban fa-5x"></i>
                         </div>
                         <div class="col-xs-9 text-right">
-                            <div class="huge">{{ $userUnRregistered }}</div>
+                            <div class="huge">{{ $userUnRegistered }}</div>
                             <div>Sinh viên chưa đăng kí</div>
                         </div>
                     </div>
@@ -98,8 +98,106 @@
                 </a>
             </div>
         </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <canvas id="line-project"></canvas>
+            </div>
+            <div class="col-lg-2">
+                <canvas id="pie-user"></canvas>
+            </div>
+            <div class="col-lg-2">
+                <canvas id="pie-project"></canvas>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <canvas id="line-diary"></canvas>
+            </div>
+        </div>
     </div>
     <!-- /.row -->
 <!-- /.row -->
 </div>
+@endsection
+
+@section('script')
+<script>
+window.onload = function() {
+var ctx = document.getElementById("line-project");
+var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: {!!json_encode($dateProject)!!},
+        datasets: [{
+            label: 'Đồ án được giảng viên tạo qua từng ngày',
+            data: {!!json_encode($countProject)!!},
+            backgroundColor: [
+                '#009688'
+            ]
+        }]
+    }
+});
+
+var user = document.getElementById("pie-user");
+var pie = new Chart(user, {
+    type: 'pie',
+    data: {
+        labels: [
+        "Sinh viên đã đăng kí",
+        "Đồ án chưa đăng kí",
+        ],
+        datasets: [
+        {
+            data: [{!!json_encode($userRegisted)!!}, {!!json_encode($userUnRegistered)!!}],
+            backgroundColor: [
+                "#CDDC39",
+                "#4CAF50",
+            ],
+            hoverBackgroundColor: [
+                "#AFB42B",
+                "#1B5E20",
+            ]
+        }]
+    }
+});
+
+var project = document.getElementById("pie-project");
+var pie = new Chart(project, {
+    type: 'pie',
+    data: {
+        labels: [
+        "Đồ án đã đăng kí",
+        "Đồ án chưa đăng kí",
+        ],
+        datasets: [
+        {
+            data: [{!!json_encode($projectRegisted)!!}, {!!json_encode($projectUnRegistered)!!}],
+            backgroundColor: [
+                "#FF5722",
+                "#9E9E9E",
+            ],
+            hoverBackgroundColor: [
+                "#BF360C",
+                "#424242",
+            ]
+        }]
+    }
+});
+
+var ctx = document.getElementById("line-diary");
+var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: {!!json_encode($dateDiary)!!},
+        datasets: [{
+            label: 'Lượng sinh viên cập nhật tiến độ',
+            data: {!!json_encode($countDiary)!!},
+            backgroundColor: [
+                '#F8BBD0'
+            ]
+        }]
+    }
+});
+};
+</script>
 @endsection

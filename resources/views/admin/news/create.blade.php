@@ -60,3 +60,9 @@
     </div>
 </div>
 @endsection
+
+@section('script')
+    <script type="text/javascript">
+        CKEDITOR.replace('body');
+    </script>
+@endsection
