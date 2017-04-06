@@ -40,7 +40,7 @@ class CouncilController extends Controller
 
         if (!$council) {
             return redirect('/admin/councils')
-                ->withErrors(['message' => 'Not found council']);
+                ->withErrors(['message' => 'Không tìm thấy']);
         }
 
         return view('admin.councils.edit')->with(

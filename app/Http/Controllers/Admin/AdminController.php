@@ -78,6 +78,6 @@ class AdminController extends Controller
         $user->gender = $request->gender;
         $user->save();
 
-        return redirect('/admin/profile/'. $user->id)->withSuccess('Cập nhật ảnh thành công');
+        return redirect('/admin/profile/'. $user->id)->withSuccess('Cập nhật thành công');
     }
 }

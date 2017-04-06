@@ -45,6 +45,6 @@ class TeacherController extends Controller
         $user->position = $request->position;
         $user->save();
 
-        return redirect('/teacher/profile/'. $user->id)->withSuccess('Cập nhật ảnh thành công');
+        return redirect('/teacher/profile/'. $user->id)->withSuccess('Cập nhật thành công');
     }
 }

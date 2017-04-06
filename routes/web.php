@@ -27,6 +27,8 @@ Route::group(['middleware' => 'admin', 'prefix' => 'admin', 'namespace' => 'Admi
 	Route::get('/users/{role}/create', 'UserController@create');
 	Route::post('/users/{role}/store', 'UserController@store');
 	Route::get('/users/{role}/edit/{id}', 'UserController@edit');
+	Route::put('/users/{role}/update/{id}', 'UserController@update');
+	Route::delete('/users/{role}/delete/{id}', 'UserController@delete');
 	Route::get('/users/{role}/show/{user}', 'UserController@show');
 	Route::post('/users/{role}/importExcel', 'UserController@importExcel');
 
@@ -39,6 +41,10 @@ Route::group(['middleware' => 'admin', 'prefix' => 'admin', 'namespace' => 'Admi
 	Route::get('/progress', 'UserController@progress');
 
 	Route::resource('/news', 'NewController');
+
+	Route::get('/points', 'ProjectController@getPoints');
+	Route::get('/points/edit/{point}', 'ProjectController@editPoint');
+	Route::post('/points/{point}', 'ProjectController@updatePoint');
 });
 
 Route::group(['prefix' => 'user', 'namespace' => 'User'], function() {

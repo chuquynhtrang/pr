@@ -47,6 +47,9 @@
                 <li>
                     <a href="{{ url('/admin/councils') }}"><i class="fa fa-address-card fa-fw"></i>&nbsp;&nbsp;Quản lý hội đồng bảo vệ</a>
                 </li>
+                <li>
+                    <a href="{{ url('/admin/points') }}"><i class="fa fa-edit fa-fw"></i>&nbsp;&nbsp;Cập nhật điểm bảo vệ</a>
+                </li>
             @elseif (Auth::user()->isTeacher())
                 <li>
                     <a href="{{ url('teacher/news') }}"><i class="fa fa-newspaper-o fa-fw"></i>&nbsp;&nbsp;Tin tức</a>
@@ -85,7 +88,7 @@
                 <li>
                     <a href="{{ url('user/forms') }}"><i class="fa fa-file-pdf-o fa-fw"></i>&nbsp;&nbsp;Biểu mẫu tham khảo</a>
                 </li>
-                 <li>
+                <li>
                     <a href="{{ url('#') }}"><i class="fa fa-address-card fa-fw"></i>&nbsp;&nbsp;Hội đồng bảo vệ</a>
                 </li>
             @endif

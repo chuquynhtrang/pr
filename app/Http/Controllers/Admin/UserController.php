@@ -49,11 +49,39 @@ class UserController extends Controller
 
         $user->save();
 
-        return redirect('/admin/users/'. $role)->withSuccess('Create User Successfully!');
+        return redirect('/admin/users/'. $role)->withSuccess('Thêm người dùng thành công');
     }
 
-    public function edit(Request $request, $role, $id) {
+    public function edit(Request $request, $role, $id) 
+    {
+        $user = User::find($id);
 
+        return view('admin.users.edit', compact('role', 'user'));
+    }
+
+    public function update(Request $request, $role, $id) 
+    {
+        $user = User::find($id);
+        $user->user_code = $request->user_code;
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->date_of_birth = $request->date_of_birth;
+        $user->gender = $request->gender;
+        $user->address = $request->address;
+        $user->phone = $request->phone;
+        $user->role = $role;
+        if ($role == 0) {
+            $user->course = $request->course;
+            $user->class = $request->class;
+            $user->score = $request->score;
+        } elseif ($role == 2) {
+            $user->workplace = $request->workplace;
+            $user->position = $request->position;
+        }
+
+        $user->save();
+
+        return redirect('/admin/users/'. $role)->withSuccess('Cập nhật người dùng thành công');
     }
 
     public function show($role, $id)
@@ -61,6 +89,56 @@ class UserController extends Controller
         $user = User::find($id);
 
         return view('admin.users.show', compact('role', 'user'));
+    }
+
+    public function delete($role, $id)
+    {
+        $user = User::find($id);
+
+        $userProjects = UserProject::whereUserId($id)->get();
+
+        $diaries = Diary::whereUserId($id)->get();
+
+        $projects = Project::whereTeacherId($id)->get();
+
+        if (!$user) {
+            return redirect('/admin/users/' . $role)
+                ->withErrors(['message' => 'Không tìm thấy']);
+        }
+
+        $user->delete();
+        if(count($userProjects)) {
+            foreach($userProjects as $userProject) {
+                $userProject->delete();
+            }
+        }
+
+        if(count($diaries)) {
+            foreach ($diaries as $diary) {
+                $diary->delete();
+            }
+        }
+
+        if(count($projects)) {
+            foreach ($projects as $project) {
+                $up = UserProject::whereProjectId($project->id)->get();
+                $di = Diary::whereUserId($up->user_id)->get();
+                if(count($up)) {    
+                    foreach ($up as $up) {
+                        $up->delete();
+                    }
+                }
+
+                if(count($di)) {
+                    foreach ($di as $di) {
+                        $di->delete();
+                    }
+                }
+
+                $project->delete();
+            }
+        }
+        return redirect('/admin/users/' . $role)->withSuccess('Xóa thành công!');
     }
 
     public function importExcel(Request $request, $role)

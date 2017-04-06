@@ -51,17 +51,19 @@
                                     </td>
                                     <td>{{ $user->name }}</td>
                                     <td>
-                                        <a href="{{url('/admin/users/'. $role . '/show/' . $user->id) }}" class="btn btn-default btn-sm"><i class="fa fa-info-circle"></i>&nbsp;Xem</a>
+                                        <a href="{{ url('/admin/users/'. $role . '/show/' . $user->id) }}" class="btn btn-default btn-sm"><i class="fa fa-info-circle"></i>&nbsp;Xem</a>
                                     </td>
                                     <td>
-                                        <a href="" class="edit btn btn-primary btn-sm"><i class="fa fa-edit"></i></a>
+                                        <a href="{{ url('admin/users/'. $role .'/edit/' . $user->id) }}" class="edit btn btn-primary btn-sm"><i class="fa fa-edit"></i></a>
                                     </td>
                                     <td>
-                                        <form method="POST" action="">
-                                            {{csrf_field()}}
-                                            <input name="_method" type="hidden" value="DELETE">
-                                            <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure delete?')"><i class="fa fa-trash"></i></button>
-                                        </form>
+                                        @if($user->id != Auth::user()->id)
+                                            <form method="POST" action="{{ url('admin/users/' . $user->role . '/delete/' . $user->id) }}">
+                                                {{csrf_field()}}
+                                                <input name="_method" type="hidden" value="DELETE">
+                                                <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure delete?')"><i class="fa fa-trash"></i></button>
+                                            </form>
+                                        @endif
                                     </td>
                                 </tr>
                             @endforeach

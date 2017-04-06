@@ -39,7 +39,7 @@
                             <td>Số điện thoại</td>
                             <td>{{ $user->phone }}</td>
                         </tr>
-                    @if($user->role == 2)
+                    @if($role == 2)
                         <tr>
                             <td>Nơi làm việc</td>
                             <td>{{ $user->workplace }}</td>
@@ -48,14 +48,14 @@
                             <td>Học vị</td>
                             <td>{{ $user->position ? 'Tiến sĩ' : 'Thạc sĩ' }}</td>
                         </tr>
-                    @elseif($user->role == 0)
+                    @elseif($role == 0)
                         <tr>
                             <td>Khóa học</td>
                             <td>{{ $user->course}}</td>
                         </tr>
                         <tr>
                             <td>Lớp học</td>
-                            <td>{{ $user->group }}</td>
+                            <td>{{ $user->class }}</td>
                         </tr>
                         <tr>
                             <td>Điểm số</td>

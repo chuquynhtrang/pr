@@ -50,7 +50,7 @@ class UserController extends Controller
         $user->score = $request->score;
         $user->save();
 
-        return redirect('/user/profile/'. $user->id)->withSuccess('Cập nhật ảnh thành công');
+        return redirect('/user/profile/'. $user->id)->withSuccess('Cập nhật thành công');
     }
 
     public function progress()
