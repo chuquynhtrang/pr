@@ -10,6 +10,11 @@ use Auth;
 
 class NewController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
     	$news = News::orderBy('created_at', 'desc')->paginate(10);

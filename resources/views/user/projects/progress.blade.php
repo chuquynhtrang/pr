@@ -23,44 +23,44 @@
                             <div class="form-group">
                                 <label class="col-md-3 control-label" for="name" focus>% hoàn thành</label>
                                 <div class="col-md-3">
-                                    <input type="text" name="progress" class="form-control">
+                                    <input type="text" name="progress" class="form-control" required="">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-3 control-label" for="complete">Việc hoàn thành</label>
                                 <div class="col-md-9">
-                                    <textarea class="form-control" rows="3" name="complete"></textarea>
+                                    <textarea class="form-control" rows="3" name="complete" required=""></textarea>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-3 control-label" for="not_complete">Việc chưa hoàn thành</label>
                                 <div class="col-md-9">
-                                    <textarea class="form-control" rows="3" name="not_complete"></textarea>
+                                    <textarea class="form-control" rows="3" name="not_complete" required=""></textarea>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-3 control-label" for="advantage">Thuận lợi</label>
                                 <div class="col-md-9">
-                                    <textarea class="form-control" rows="3" name="advantage"></textarea>
+                                    <textarea class="form-control" rows="3" name="advantage" required=""></textarea>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-3 control-label" for="difficult">Khó khăn</label>
                                 <div class="col-md-9">
-                                    <textarea class="form-control" rows="3" name="difficult"></textarea>
+                                    <textarea class="form-control" rows="3" name="difficult" required=""></textarea>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-3 control-label" for="expected">Dự kiến</label>
                                 <div class="col-md-9">
-                                    <textarea class="form-control" rows="3" name="expected"></textarea>
+                                    <textarea class="form-control" rows="3" name="expected" required=""></textarea>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-md-3"></div>
                                 <div class="col-md-3">
                                     <button id="create_student" name="create" class="btn btn-success">
-                                        Submit
+                                        Cập nhật
                                     </button>
                                 </div>
                             </div>
@@ -83,7 +83,7 @@
                             </div>
                             <div class="progress-text-{{$diary->id}}" style="display: none; margin-top: 60px;">
                                 <div class="form-group">
-                                    <label class="col-md-3 control-label" for="complete">% Hoàn thành: </label>
+                                    <label class="col-md-3 control-label" for="complete">Tiến độ: </label>
                                     <div class="col-md-9">
                                         <p>{{$diary->progress}}&nbsp;%</p>
                                     </div>

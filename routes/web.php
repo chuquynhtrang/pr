@@ -61,6 +61,7 @@ Route::group(['prefix' => 'user', 'namespace' => 'User'], function() {
 	Route::get('/progress/{diary}', 'UserController@showDiary');
 	Route::get('/news', 'NewController@index');
 	Route::get('/news/{new}', 'NewController@show');
+	Route::get('/councils', 'CouncilController@index');
 });
 
 Route::group(['prefix' => 'teacher', 'namespace' => 'Teacher'], function() {

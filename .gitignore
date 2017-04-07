@@ -7,6 +7,6 @@
 Homestead.json
 Homestead.yaml
 public/fonts
-public/css
-public/js
+public/css/
+public/js/
 public/uploads/

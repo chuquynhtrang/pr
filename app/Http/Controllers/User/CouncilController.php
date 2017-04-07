@@ -4,9 +4,9 @@ namespace App\Http\Controllers\User;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Form;
+use App\Models\Council;
 
-class FormController extends Controller
+class CouncilController extends Controller
 {
     public function __construct()
     {
@@ -15,8 +15,9 @@ class FormController extends Controller
 
     public function index()
     {
-        $forms = Form::all();
+    	$councils = Council::all();
 
-        return view('user.forms.index', compact('forms'));
+    	return view('user.councils.index', compact('councils'));
     }
+
 }

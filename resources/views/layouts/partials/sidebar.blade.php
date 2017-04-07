@@ -58,16 +58,11 @@
                     <a href="{{ url('teacher/projects') }}"><i class="fa fa-book fa-fw"></i>&nbsp;&nbsp;Quản lý đề tài</a>
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-user-circle fa-fw"></i>&nbsp;&nbsp;Danh sách đăng kí<span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level">
-                        <li>
-                            <a href="{{url('teacher/users/wait') }}">Chờ phê duyệt</a>
-                        </li>
-                        <li>
-                            <a href="{{url('teacher/users/receive') }}">Đã nhận</a>
-                        </li>
-                    </ul>
-                    <!-- /.nav-second-level -->
+                    <a href="{{url('teacher/users/wait') }}"><i class="fa fa-users fa-fw"></i>&nbsp;&nbsp;Sinh viên chờ phê duyệt</a>
+                </li>
+                <li>
+                    <a href="{{url('teacher/users/receive') }}"><i class="fa fa-users fa-fw"></i>&nbsp;&nbsp;Sinh viên đã nhận</a>
+                </li>
                 </li>
                 <li>
                     <a href="{{url('teacher/progress')}}"><i class="fa fa-tasks fa-fw"></i>&nbsp;&nbsp;Kiểm tra tiến độ</a>
@@ -89,7 +84,7 @@
                     <a href="{{ url('user/forms') }}"><i class="fa fa-file-pdf-o fa-fw"></i>&nbsp;&nbsp;Biểu mẫu tham khảo</a>
                 </li>
                 <li>
-                    <a href="{{ url('#') }}"><i class="fa fa-address-card fa-fw"></i>&nbsp;&nbsp;Hội đồng bảo vệ</a>
+                    <a href="{{ url('user/councils') }}"><i class="fa fa-address-card fa-fw"></i>&nbsp;&nbsp;Hội đồng bảo vệ</a>
                 </li>
             @endif
         </ul>

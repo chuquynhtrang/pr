@@ -49,7 +49,7 @@
                             <div class="col-md-6"></div>
                             <div class="col-md-3">
                                 <button name="create" class="btn btn-success">
-                                    Submit
+                                    Cập nhật
                                 </button>
                             </div>
                         </div>

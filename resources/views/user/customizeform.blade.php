@@ -44,8 +44,14 @@
                 @foreach ($userProject as $up)
                     <ol>
                         <li>Tên đề tài: {{ $up->project->name }}</li>
-                        <li>Họ và tên học viên: {{ $up->user->name }}</li>
-                        <li>Họ và tên giảng viên hướng dẫn: {{ $up->project->teacher_id }}</li>
+                        <li>Họ và tên học viên: {{ $up->user->name }}<br>
+                            Lớp: {{$up->user->class}}<span style="margin:100px;"></span>Mã sinh viên: {{$up->user->user_code}}<br>
+                            Điện thoại: {{$up->user->phone}}<span style="margin:100px;"></span>Email: {{$up->user->email}}
+                        </li>
+                        <li>
+                            Họ và tên giảng viên hướng dẫn: {{ $up->project->user->name }}<br>
+                            Điện thoại: {{$up->project->user->phone}}<span style="margin:100px;"></span>Email: {{$up->project->user->email}}
+                        </li>
                         <li>Tiến độ công việc:
                             <ul style="list-style-type: square;">
                                 <li style="height: 80px;">Công việc đã hoàn thành: {{ $diary->complete }}</li>

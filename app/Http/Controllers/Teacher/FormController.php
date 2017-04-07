@@ -8,10 +8,15 @@ use App\Models\Form;
 
 class FormController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
-    	$forms = Form::all();
+        $forms = Form::all();
 
-    	return view('teacher.forms.index', compact('forms'));
+        return view('teacher.forms.index', compact('forms'));
     }
 }
