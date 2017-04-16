@@ -13,11 +13,6 @@
     @include('layouts.partials.success')
 
     <div class="row">
-        <a href="{{ url('/admin/old-projects/create') }}" class="btn btn-success btn-md" id="create-form" >Thêm đồ án</a>
-    </div>
-    <br>
-
-    <div class="row">
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading table-panel">
@@ -32,8 +27,6 @@
                                 <th>Tên đồ án</th>
                                 <th>Miêu tả</th>
                                 <th>Tài liệu tham khảo</th>
-                                <th>Sửa</th>
-                                <th>Xóa</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -44,16 +37,6 @@
                                     <td>{{ $project->description }}</td>
                                     <td>
                                         <a href="http://localhost/pr/public/uploads/references/{{$project->references}}" target="_blank">{{ $project->references }}</a>
-                                    </td>
-                                    <td>
-                                        <a href="{{ url('/admin/old-projects/' . $project->id . '/edit') }}" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></a>
-                                    </td>
-                                    <td>
-                                        <form method="POST" action="{{ url('admin/old-projects/' . $project->id) }}">
-                                            {{csrf_field()}}
-                                            <input name="_method" type="hidden" value="DELETE">
-                                            <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure delete?')"><i class="fa fa-trash"></i></button>
-                                        </form>
                                     </td>
                                 </tr>
                             @endforeach

@@ -19,7 +19,7 @@ class ProjectController extends Controller
     {
         $check = 0;
 
-    	$projects = Project::all();
+    	$projects = Project::whereOldProject(0);
         $user = UserProject::where('user_id', Auth::user()->id)->orderBy('id', 'desc')->get();
         if(count($user)) {
             if ($user[0]->status == 3) {
@@ -80,5 +80,12 @@ class ProjectController extends Controller
         $userProject[0]->delete();
 
         return redirect('user/projects')->withSuccess('Hủy đăng kí đề tài thành công');
+    }
+
+    public function getOldProjects()
+    {
+        $projects = Project::whereOldProject(1)->get();
+
+        return view('user.projects.old-project', compact('projects'));
     }
 }

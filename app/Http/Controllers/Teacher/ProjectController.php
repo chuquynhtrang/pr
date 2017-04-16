@@ -133,4 +133,11 @@ class ProjectController extends Controller
 
         return redirect('teacher/users/receive');
     }
+
+    public function getOldProjects()
+    {
+        $projects = Project::whereOldProject(1)->get();
+
+        return view('teacher.projects.old-project', compact('projects'));
+    }
 }

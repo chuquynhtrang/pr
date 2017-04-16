@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Project;
 use App\Models\UserProject;
+use Auth;
 
 class ProjectController extends Controller
 {
@@ -53,5 +54,89 @@ class ProjectController extends Controller
         $projects = Project::whereOldProject(1)->get();
 
         return view('admin.projects.old-project', compact('projects'));
+    }
+
+    public function createOldProject()
+    {
+        return view('admin.projects.create');
+    }
+
+    public function storeOldProject(Request $request)
+    {
+        $this->validate($request, [
+            'name' => 'required|unique:projects',
+        ]);
+
+        $project = new Project();
+        $project->name = $request->name;
+        $project->description = $request->description;
+        $project->teacher_id = Auth::user()->id;
+        $project->old_project = 1;
+        if($request->hasFile('references')) {
+            $name = $request->file('references');
+            $filename = $name->getClientOriginalName();
+            $request->file('references')->move(base_path() . '/public/uploads/references', $filename);
+            $project->references = $filename;
+        }
+
+        $project->save();
+
+        return redirect('/admin/old-projects')->withSuccess('Thêm đề tài thành công!');
+    }
+
+    public function editOldProject($id)
+    {
+        $project = Project::find($id);
+
+        if (!$project) {
+            return redirect('/admin/old-projects')
+                ->withErrors(['message' => 'Không tìm thấy tên đề tài']);
+        }
+
+        return view('admin.projects.edit')->with(
+            [
+                'project' => $project,
+                'action' => url('/admin/old-projects/'. $project->id),
+                'input' => '<input name="_method" type="hidden" value="PUT">',
+            ]
+        );
+    }
+
+    public function updateOldProject(Request $request, $id)
+    {
+        $project = Project::find($id);
+
+        if (!$project) {
+            return redirect('/admin/old-projects')
+                ->withErrors(['message' => 'Không tìm thấy tên đề tài']);
+        }
+
+        $project->name = $request->name;
+        $project->description = $request->description;
+        if($request->hasFile('references')) {
+            $name = $request->file('references');
+            $filename = $name->getClientOriginalName();
+            $request->file('references')->move(base_path() . '/public/uploads/references', $filename);
+            $project->references = $filename;
+        }
+
+        $project->save();
+
+        return redirect('/admin/old-projects')->withSuccess('Cập nhật đề tài thành công!');
+    }
+
+    public function destroyOldProject($id)
+    {
+        $project = Project::find($id);
+
+        if (!$project) {
+            return redirect('/admin/old-projects')
+                ->withErrors(['message' => 'Không tìm thấy đề tài']);
+        }
+
+        $project->delete();
+        unlink('uploads/references/' . $project->references);
+
+        return redirect('/admin/old-projects')->withSuccess('Xóa đề tài thành công!');
     }
 }

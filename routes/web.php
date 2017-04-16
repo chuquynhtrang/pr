@@ -42,6 +42,11 @@ Route::group(['middleware' => 'admin', 'prefix' => 'admin', 'namespace' => 'Admi
 	Route::get('/projects', 'ProjectController@index');
 	Route::get('/progress', 'UserController@progress');
 	Route::get('/old-projects', 'ProjectController@getOldProjects');
+	Route::get('/old-projects/create', 'ProjectController@createOldProject');
+	Route::post('/old-projects', 'ProjectController@storeOldProject');
+	Route::get('/old-projects/{id}/edit', 'ProjectController@editOldProject');
+	Route::put('/old-projects/{id}', 'ProjectController@updateOldProject');
+	Route::delete('/old-projects/{id}', 'ProjectController@destroyOldProject');
 	Route::resource('/news', 'NewController');
 
 	Route::get('/points', 'ProjectController@getPoints');
@@ -67,6 +72,7 @@ Route::group(['prefix' => 'user', 'namespace' => 'User'], function() {
 	Route::get('/news', 'NewController@index');
 	Route::get('/news/{new}', 'NewController@show');
 	Route::get('/councils', 'CouncilController@index');
+	Route::get('/old-projects', 'ProjectController@getOldProjects');
 });
 
 Route::group(['prefix' => 'teacher', 'namespace' => 'Teacher'], function() {
@@ -85,4 +91,5 @@ Route::group(['prefix' => 'teacher', 'namespace' => 'Teacher'], function() {
 	Route::get('/forms', 'FormController@index');
 	Route::get('/news', 'NewController@index');
 	Route::get('/news/{new}', 'NewController@show');
+	Route::get('/old-projects', 'ProjectController@getOldProjects');
 });

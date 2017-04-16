@@ -15,7 +15,7 @@
     <div class="row">
         <a href="{{ url('teacher/projects/create')}}" class="btn btn-success btn-md {{ $checkButton ? 'disabled' : '' }}" id="create-form" >Thêm đề tài</a>
     </div>
-    <hr>
+    <br>
 
     <div class="row">
         <div class="col-lg-12">
