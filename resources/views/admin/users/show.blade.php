@@ -45,6 +45,10 @@
                             <td>{{ $user->workplace }}</td>
                         </tr>
                         <tr>
+                            <td>Chức vụ/Cấp bậc</td>
+                            <td>{{ $user->rank }}</td>
+                        </tr>
+                        <tr>
                             <td>Học vị</td>
                             <td>{{ $user->position ? 'Tiến sĩ' : 'Thạc sĩ' }}</td>
                         </tr>

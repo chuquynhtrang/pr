@@ -48,6 +48,12 @@
 	</div>
 </div>
 <div class="form-group">
+	<label class="col-md-3 control-label" for="rank">Chức vụ/Cấp bậc</label>
+	<div class="col-md-3">
+		<input type="text" name="rank" class="form-control" required="" value="{{isset($user->rank) ? $user->rank : ''}}">
+	</div>
+</div>
+<div class="form-group">
 	<label class="col-md-3 control-label" for="course">Học vị</label>
 	<div class="col-md-3">
 		<select id="course" name="position" class="form-control">

@@ -16,7 +16,7 @@ class ProjectController extends Controller
 
     public function index()
     {
-        $projects = Project::all();
+        $projects = Project::whereOldProject(0)->get();
 
     	return view('admin.projects.index', compact('projects'));
     }
@@ -46,5 +46,12 @@ class ProjectController extends Controller
     	$point->save();
 
     	return redirect('admin/points')->withSuccess('Cập nhật điểm thành công');
+    }
+
+    public function getOldProjects()
+    {
+        $projects = Project::whereOldProject(1)->get();
+
+        return view('admin.projects.old-project', compact('projects'));
     }
 }

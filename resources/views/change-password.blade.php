@@ -16,7 +16,13 @@
             <div class="panel panel-default">
                 <div class="panel-body">
                     <div class="row">
-                        <form method="POST" class="form-horizontal" enctype="multipart/form-data" action="{{ url('admin/change-password/'. $user->id) }}">
+                        @if (Auth::user()->isAdmin())
+                            <form method="POST" class="form-horizontal" enctype="multipart/form-data" action="{{ url('admin/change-password/'. $user->id) }}">
+                        @elseif (Auth::user()->isTeacher())
+                            <form method="POST" class="form-horizontal" enctype="multipart/form-data" action="{{ url('teacher/change-password/'. $user->id) }}">
+                        @else
+                            <form method="POST" class="form-horizontal" enctype="multipart/form-data" action="{{ url('user/change-password/'. $user->id) }}">
+                        @endif
                             {{csrf_field()}}
                             <input name="_method" type="hidden" value="PUT">
                             <div class="form-group">

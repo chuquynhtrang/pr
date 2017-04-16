@@ -110,6 +110,16 @@
                                 </div>
 
                                 <div class="form-group">
+                                    <label for="rank" class="col-lg-3 control-label">
+                                        Chức vụ/Cấp bậc
+                                    </label>
+                                    <div class="col-lg-8 input-group">
+                                        <span class="input-group-addon"><i class="fa fa-map" aria-hidden="true"></i></span>
+                                        <input type="text" name="rank" value="{{$user->rank}}" class="form-control">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
                                     <label for="position" class="col-lg-3 control-label">
                                         Học vị
                                     </label>

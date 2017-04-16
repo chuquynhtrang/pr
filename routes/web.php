@@ -41,7 +41,7 @@ Route::group(['middleware' => 'admin', 'prefix' => 'admin', 'namespace' => 'Admi
 
 	Route::get('/projects', 'ProjectController@index');
 	Route::get('/progress', 'UserController@progress');
-
+	Route::get('/old-projects', 'ProjectController@getOldProjects');
 	Route::resource('/news', 'NewController');
 
 	Route::get('/points', 'ProjectController@getPoints');

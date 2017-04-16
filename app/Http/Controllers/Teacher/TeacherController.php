@@ -43,6 +43,7 @@ class TeacherController extends Controller
         $user->date_of_birth = $request->date_of_birth;
         $user->gender = $request->gender;
         $user->workplace = $request->workplace;
+        $user->rank = $request->rank;
         $user->position = $request->position;
         $user->save();
 
@@ -66,14 +67,14 @@ class TeacherController extends Controller
 
         $user = User::find($id);
         if (!Hash::check($request->old_password, $user->password)) {
-            return redirect('/admin/change-password/' . $user->id)->withErrors('Mật khẩu cũ không đúng');
+            return redirect('/teacher/change-password/' . $user->id)->withErrors('Mật khẩu cũ không đúng');
         } elseif ($request->new_password != $request->re_password) {
-            return redirect('/admin/change-password/' . $user->id)->withErrors('Mật khẩu mới không khớp');
+            return redirect('/teacher/change-password/' . $user->id)->withErrors('Mật khẩu mới không khớp');
         } else {
             $user->password = bcrypt($request->new_password);
             $user->save();
 
-            return redirect('/admin/change-password/'. $user->id)->withSuccess('Đổi mật khẩu thành công');
+            return redirect('/teacher/change-password/'. $user->id)->withSuccess('Đổi mật khẩu thành công');
         }
     }
 }

@@ -49,6 +49,7 @@ class UserController extends Controller
             $user->score = $request->score;
         } elseif ($role == 2) {
             $user->workplace = $request->workplace;
+            $user->rank = $request->rank;
             $user->position = $request->position;
         }
 
@@ -81,6 +82,7 @@ class UserController extends Controller
             $user->score = $request->score;
         } elseif ($role == 2) {
             $user->workplace = $request->workplace;
+            $user->rank = $request->rank;
             $user->position = $request->position;
         }
 
@@ -164,10 +166,11 @@ class UserController extends Controller
                             'gender' => $value->gender,
                             'address' => $value->address,
                             'phone' => $value->phone,
-                            'avatar' => 'images/default.png',
+                            'avatar' => config('common.image_default'),
                             'class' => $value->class,
                             'course' => $value->course,
                             'workplace' => $value->workplace,
+                            'rank' => $value->rank,
                             'position' => $value->position,
                             'score' => $value->score,
                             'role' => $role,
