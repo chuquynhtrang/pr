@@ -10,6 +10,7 @@ use App\Models\Project;
 use App\Models\Diary;
 use Cloudder;
 use DB;
+use Hash;
 
 class AdminController extends Controller
 {
@@ -79,5 +80,33 @@ class AdminController extends Controller
         $user->save();
 
         return redirect('/admin/profile/'. $user->id)->withSuccess('Cập nhật thành công');
+    }
+
+    public function changePassword($id)
+    {
+        $user = User::find($id);
+
+        return view('change-password', compact('user'));
+    }
+
+    public function updatePassword(Request $request, $id)
+    {
+        $this->validate($request, [
+            'old_password' => 'required',
+            'new_password' => 'required',
+            're_password' => 'required',
+        ]);
+
+        $user = User::find($id);
+        if (!Hash::check($request->old_password, $user->password)) {
+            return redirect('/admin/change-password/' . $user->id)->withErrors('Mật khẩu cũ không đúng');
+        } elseif ($request->new_password != $request->re_password) {
+            return redirect('/admin/change-password/' . $user->id)->withErrors('Mật khẩu mới không khớp');
+        } else {
+            $user->password = bcrypt($request->new_password);
+            $user->save();
+
+            return redirect('/admin/change-password/'. $user->id)->withSuccess('Đổi mật khẩu thành công');
+        }
     }
 }

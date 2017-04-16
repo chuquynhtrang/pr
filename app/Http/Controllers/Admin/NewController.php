@@ -17,7 +17,7 @@ class NewController extends Controller
 
     public function index()
     {
-    	$news = News::orderBy('created_at', 'desc')->paginate(10);
+    	$news = News::orderBy('created_at', 'desc')->get();
         $fileNews = FileNew::all();
 
         return view('admin.news.index', compact('news', 'fileNews'));

@@ -131,10 +131,32 @@ var myChart = new Chart(ctx, {
         datasets: [{
             label: 'Đồ án được giảng viên tạo qua từng ngày',
             data: {!!json_encode($countProject)!!},
+            pointBorderColor: "#80CBC4",
+            pointBackgroundColor: "#fff",
+            pointBorderWidth: 5,
+            pointHoverRadius: 5,
+            pointHoverBackgroundColor: "#80CBC4",
+            pointHoverBorderColor: "#80CBC4",
+            pointHoverBorderWidth: 2,
+            pointRadius: 1,
+            pointHitRadius: 10,
             backgroundColor: [
+                '#80CBC4'
+            ],
+            borderColor: [
                 '#009688'
-            ]
+            ],
+            borderWidth: 1
         }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
     }
 });
 
@@ -163,7 +185,7 @@ var pie = new Chart(user, {
 
 var project = document.getElementById("pie-project");
 var pie = new Chart(project, {
-    type: 'pie',
+    type: 'doughnut',
     data: {
         labels: [
         "Đồ án đã đăng kí",
@@ -186,16 +208,40 @@ var pie = new Chart(project, {
 
 var ctx = document.getElementById("line-diary");
 var myChart = new Chart(ctx, {
-    type: 'bar',
+    type: 'line',
     data: {
         labels: {!!json_encode($dateDiary)!!},
         datasets: [{
             label: 'Lượng sinh viên cập nhật tiến độ',
             data: {!!json_encode($countDiary)!!},
-            backgroundColor: [
-                '#01579B'
-            ]
+            fill: false,
+            lineTension: 0.1,
+            backgroundColor: "#F57F17",
+            borderColor: "#F57F17",
+            borderCapStyle: 'butt',
+            borderDash: [],
+            borderDashOffset: 0.0,
+            borderJoinStyle: 'miter',
+            pointBorderColor: "#F9A825",
+            pointBackgroundColor: "#fff",
+            pointBorderWidth: 5,
+            pointHoverRadius: 5,
+            pointHoverBackgroundColor: "#F9A825",
+            pointHoverBorderColor: "#F9A825",
+            pointHoverBorderWidth: 2,
+            pointRadius: 1,
+            pointHitRadius: 10,
+            borderWidth: 1
         }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
     }
 });
 };

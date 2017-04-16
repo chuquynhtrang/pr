@@ -10,6 +10,7 @@ use App\Models\Project;
 use App\Models\Diary;
 use Cloudder;
 use Auth;
+use Hash;
 
 class UserController extends Controller
 {
@@ -63,6 +64,10 @@ class UserController extends Controller
 
     public function updateProgress(Request $request)
     {
+        $this->validate($request, [
+            'progress' => 'required|numeric',
+        ]);
+
         $diary = new Diary();
         $diary->progress = $request->progress;
         $diary->complete = $request->complete;
@@ -81,7 +86,35 @@ class UserController extends Controller
     {
         $userProject = UserProject::with('project', 'user')->where('user_id', Auth::user()->id)->where('status', 2)->orderBy('id', 'desc')->get();
         $diary = Diary::find($diaryId);
-        // dd($userProject);
+
         return view('user.customizeform', compact('userProject', 'diary'));
+    }
+
+    public function changePassword($id)
+    {
+        $user = User::find($id);
+
+        return view('change-password', compact('user'));
+    }
+
+    public function updatePassword(Request $request, $id)
+    {
+        $this->validate($request, [
+            'old_password' => 'required',
+            'new_password' => 'required',
+            're_password' => 'required',
+        ]);
+
+        $user = User::find($id);
+        if (!Hash::check($request->old_password, $user->password)) {
+            return redirect('/admin/change-password/' . $user->id)->withErrors('Mật khẩu cũ không đúng');
+        } elseif ($request->new_password != $request->re_password) {
+            return redirect('/admin/change-password/' . $user->id)->withErrors('Mật khẩu mới không khớp');
+        } else {
+            $user->password = bcrypt($request->new_password);
+            $user->save();
+
+            return redirect('/admin/change-password/'. $user->id)->withSuccess('Đổi mật khẩu thành công');
+        }
     }
 }

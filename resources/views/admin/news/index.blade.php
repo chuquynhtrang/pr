@@ -29,10 +29,13 @@
                     </div>
                 </div>
             @endforeach
-            <div class="pull-right">
-                {{ $news->links() }}
-            </div>
         </div>
     </div>
 </div>
+@endsection
+
+@section('script')
+<script>
+    $('.body-news').jscroll();
+</script>
 @endsection

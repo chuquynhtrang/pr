@@ -11,22 +11,28 @@
                 <ul class="dropdown-menu dropdown-user">
                     <li>
                         @if (Auth::user()->isAdmin())
-                            <a href="{{ url('admin/profile', Auth::user()->id) }}"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                            <a href="{{ url('admin/profile', Auth::user()->id) }}"><i class="fa fa-user fa-fw"></i> Thông tin cá nhân</a>
                         @elseif (Auth::user()->isTeacher())
-                            <a href="{{ url('teacher/profile', Auth::user()->id) }}"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                            <a href="{{ url('teacher/profile', Auth::user()->id) }}"><i class="fa fa-user fa-fw"></i> Thông tin cá nhân</a>
                         @else
-                            <a href="{{ url('user/profile', Auth::user()->id) }}"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                            <a href="{{ url('user/profile', Auth::user()->id) }}"><i class="fa fa-user fa-fw"></i> Thông tin cá nhân</a>
                         @endif
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                         @if (Auth::user()->isAdmin())
+                            <a href="{{ url('admin/change-password', Auth::user()->id) }}"><i class="fa fa-cog fa-fw"></i> Đổi mật khẩu</a>
+                        @elseif (Auth::user()->isTeacher())
+                            <a href="{{ url('teacher/change-password', Auth::user()->id) }}"><i class="fa fa-cog fa-fw"></i> Đổi mật khẩu</a>
+                        @else
+                            <a href="{{ url('user/change-password', Auth::user()->id) }}"><i class="fa fa-cog fa-fw"></i> Đổi mật khẩu</a>
+                        @endif
                     </li>
                     <li class="divider"></li>
                     <li>
                         <a href="{{ url('/logout') }}"
                             onclick="event.preventDefault();
                                      document.getElementById('logout-form').submit();">
-                            Logout
+                            Đăng xuất
                         </a>
                         <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
                             {{ csrf_field() }}

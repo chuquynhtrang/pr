@@ -22,6 +22,8 @@ Route::group(['middleware' => 'admin', 'prefix' => 'admin', 'namespace' => 'Admi
 
 	Route::get('/profile/{user}', 'AdminController@profile');
 	Route::put('/profile/{user}', 'AdminController@updateProfile');
+	Route::get('/change-password/{id}', 'AdminController@changePassword');
+	Route::put('/change-password/{id}', 'AdminController@updatePassword');
 
 	Route::get('/users/{role}', 'UserController@index');
 	Route::get('/users/{role}/create', 'UserController@create');
@@ -51,6 +53,9 @@ Route::group(['prefix' => 'user', 'namespace' => 'User'], function() {
 	Route::get('/', 'UserController@index');
 	Route::get('/profile/{user}', 'UserController@profile');
 	Route::put('/profile/{user}', 'UserController@updateProfile');
+	Route::get('/change-password/{id}', 'UserController@changePassword');
+	Route::put('/change-password/{id}', 'UserController@updatePassword');
+
 	Route::get('/projects', 'ProjectController@index');
 	Route::get('/projects/{project}', 'ProjectController@show');
 	Route::post('/projects/register/{project}', 'ProjectController@register');
@@ -69,6 +74,9 @@ Route::group(['prefix' => 'teacher', 'namespace' => 'Teacher'], function() {
 	Route::resource('/projects', 'ProjectController');
 	Route::get('/profile/{user}', 'TeacherController@profile');
 	Route::put('/profile/{user}', 'TeacherController@updateProfile');
+	Route::get('/change-password/{id}', 'TeacherController@changePassword');
+	Route::put('/change-password/{id}', 'TeacherController@updatePassword');
+
 	Route::get('/users/wait', 'UserController@wait');
 	Route::get('/users/receive', 'UserController@receive');
 	Route::get('/users/{user}', 'UserController@show');
