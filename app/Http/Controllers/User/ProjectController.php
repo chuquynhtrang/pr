@@ -19,7 +19,7 @@ class ProjectController extends Controller
     {
         $check = 0;
 
-    	$projects = Project::whereOldProject(0);
+    	$projects = Project::whereOldProject(0)->get();
         $user = UserProject::where('user_id', Auth::user()->id)->orderBy('id', 'desc')->get();
         if(count($user)) {
             if ($user[0]->status == 3) {

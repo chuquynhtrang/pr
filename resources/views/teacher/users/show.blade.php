@@ -39,7 +39,7 @@
                         </tr>
                         <tr>
                             <td>Lớp học</td>
-                            <td>{{ $user->group }}</td>
+                            <td>{{ $user->class }}</td>
                         </tr>
                         <tr>
                             <td>Điểm số</td>
