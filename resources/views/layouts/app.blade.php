@@ -49,7 +49,6 @@
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/sb-admin-2.js') }}"></script>
     <script src="{{ asset('js/Chart.js') }}"></script>
-    <script src="{{ asset('js/jquery.jscroll.js') }}"></script>
     @yield('script')
 </body>
 </html>

@@ -9,7 +9,6 @@ require('./bootstrap');
 require('metismenu');
 var dt = require('datatables');
 require('ckeditor');
-require('jscroll');
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

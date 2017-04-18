@@ -21,4 +21,3 @@ mix.copy('node_modules/datatables/media/css/jquery.dataTables.css', 'public/css/
 mix.sass('resources/assets/sass/user.scss', 'public/css');
 mix.js('resources/assets/js/user.js', 'public/js');
 mix.copy('node_modules/chart.js/dist/Chart.js', 'public/js');
-mix.copy('node_modules/jscroll/jquery.jscroll.js', 'public/js');
