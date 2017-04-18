@@ -41,13 +41,6 @@
                 </ul>
                 <!-- /.dropdown-user -->
             </li>
-        @else
-        <li style="margin-right: 50px; color: #fff;">
-            <a class="nav-href" href="{{ url('/login') }}">ĐĂNG NHẬP</a>
-        </li>
-        <li style="margin-right: 50px; color: #fff;">
-            <a class="nav-href" href="{{ url('/register') }}">ĐĂNG KÍ</a>
-        </li>
         @endif
         <!-- /.dropdown -->
     </ul>

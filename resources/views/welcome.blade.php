@@ -88,7 +88,7 @@
                         @endif
                     @else
                         <a href="{{ url('/login') }}">Đăng nhập</a>
-                        <a href="{{ url('/register') }}">Đăng kí</a>
+                        <!-- <a href="{{ url('/register') }}">Đăng kí</a> -->
                     @endif
                 </div>
             @endif
