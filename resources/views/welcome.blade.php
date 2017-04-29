@@ -51,15 +51,18 @@
             }
 
             .title {
-                font-size: 70px;
-                color: #fff;
+                font-size: 45px;
+                color: #FFE57F;
                 font-weight: 600;
             }
-
+            .content :hover {
+                color: #FFAB40;
+                cursor: pointer;
+            }
             .links > a {
                 color: #fff;
                 padding: 0 25px;
-                font-size: 14px;
+                font-size: 16px;
                 font-weight: 600;
                 letter-spacing: .1rem;
                 text-decoration: none;
@@ -95,7 +98,6 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    HỆ THỐNG QUẢN LÝ ĐỒ ÁN
                 </div>
             </div>
         </div>

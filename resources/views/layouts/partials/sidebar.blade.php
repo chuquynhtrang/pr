@@ -48,7 +48,7 @@
                     <a href="{{ url('admin/progress') }}"><i class="fa fa-tasks fa-fw"></i>&nbsp;&nbsp;Kiểm tra tiến độ</a>
                 </li>
                 <li>
-                    <a href="{{ url('/admin/councils') }}"><i class="fa fa-address-card fa-fw"></i>&nbsp;&nbsp;Quản lý hội đồng bảo vệ</a>
+                    <a href="{{ url('/admin/councils') }}"><i class="fa fa-address-card fa-fw"></i>&nbsp;&nbsp;Hội đồng chấm đồ án</a>
                 </li>
                 <li>
                     <a href="{{ url('/admin/points') }}"><i class="fa fa-edit fa-fw"></i>&nbsp;&nbsp;Cập nhật điểm bảo vệ</a>
@@ -93,7 +93,7 @@
                     <a href="{{ url('user/forms') }}"><i class="fa fa-file-pdf-o fa-fw"></i>&nbsp;&nbsp;Biểu mẫu tham khảo</a>
                 </li>
                 <li>
-                    <a href="{{ url('user/councils') }}"><i class="fa fa-address-card fa-fw"></i>&nbsp;&nbsp;Hội đồng bảo vệ</a>
+                    <a href="{{ url('user/councils') }}"><i class="fa fa-address-card fa-fw"></i>&nbsp;&nbsp;Hội đồng chấm đồ án</a>
                 </li>
             @endif
         </ul>
