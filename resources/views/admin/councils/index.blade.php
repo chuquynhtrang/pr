@@ -41,8 +41,7 @@
                             <tr>
                                 <th>ID</th>
                                 <th>Địa điểm</th>
-                                <th>Ngày tạo</th>
-                                <th>Ngày sửa</th>
+                                <th>Thời gian bảo vệ</th>
                                 <th>Sửa</th>
                                 <th>Xóa</th>
                             </tr>
@@ -52,8 +51,7 @@
                                 <tr>
                                     <td>{{ $council->id }}</td>
                                     <td>{{ $council->place }}</td>
-                                    <td>{{ $council->created_at }}</td>
-                                    <td>{{ $council->updated_at }}</td>
+                                    <td>{{ $council->time }}</td>
                                     <td>
                                         <a href="{{ url('/admin/councils/' . $council->id . '/edit') }}" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></a>
                                     </td>

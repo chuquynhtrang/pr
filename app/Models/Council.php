@@ -8,5 +8,6 @@ class Council extends Model
 {
     protected $fillable = [
         'place',
+        'time',
     ];
 }

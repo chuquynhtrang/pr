@@ -29,11 +29,12 @@ class CouncilController extends Controller
     {
         $this->validate($request, [
             'place' => 'required|unique:councils',
+            'time' => 'required',
         ]);
 
         $council = new Council();
-        $place = $request->only('place');
-        $council->create($place);
+        $input = $request->only('place', 'time');
+        $council->create($input);
 
         return redirect('/admin/councils')->withSuccess('Thêm thành công!');
     }
@@ -67,10 +68,10 @@ class CouncilController extends Controller
         }
 
         $this->validate($request, [
-            'place' => 'required|unique:councils',
+            'time' => 'required',
         ]);
 
-        $request = $request->only('place');
+        $request = $request->only('place', 'time');
         $council->update($request);
 
         return redirect('/admin/councils')->withSuccess('Cập nhật thành công');
