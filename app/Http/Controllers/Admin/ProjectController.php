@@ -139,4 +139,14 @@ class ProjectController extends Controller
 
         return redirect('/admin/old-projects')->withSuccess('Xóa đề tài thành công!');
     }
+
+    public function show($id)
+    {
+        $project = Project::find($id);
+        $user = UserProject::where('user_id', Auth::user()->id)->orderBy('id', 'desc')->get();
+        $userWait = UserProject::where('project_id', $id)->where('status', 1)->get();
+        $userReceive = UserProject::where('project_id', $id)->where('status', 2)->get();
+
+        return view('admin.projects.show', compact('project', 'userWait', 'userReceive'));
+    }
 }

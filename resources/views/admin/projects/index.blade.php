@@ -4,7 +4,7 @@
 <div id="page-wrapper">
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">Đề tài</h1>
+            <h1 class="page-header">Đồ án</h1>
         </div>
         <!-- /.col-lg-12 -->
     </div>
@@ -13,7 +13,7 @@
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading table-panel">
-                    Danh sách đề tài
+                    Danh sách đồ án
                 </div>
                 <!-- /.panel-heading -->
                 <div class="panel-body">
@@ -21,10 +21,8 @@
                         <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>Tên đề tài</th>
+                                <th>Tên đồ án</th>
                                 <th>Giảng viên</th>
-                                <th>Hướng thực hiện</th>
-                                <th>Tài liệu tham khảo</th>
                                 <th>Ngày tạo</th>
                                 <th>Ngày cập nhật</th>
                             </tr>
@@ -33,12 +31,10 @@
                             @foreach($projects as $project)
                                 <tr>
                                     <td>{{ $project->id }}</td>
-                                    <td>{{ $project->name }}</td>
-                                    <td>{{ $project->user->name }}</td>
-                                    <td>{{ $project->description }}</td>
                                     <td>
-                                        <a href="http://localhost/pr/public/uploads/references/{{$project->references}}" target="_blank">{{ $project->references }}</a>
+                                        <a href="{{url('/admin/projects/'. $project->id)}}"> {{ $project->name }}</a>
                                     </td>
+                                    <td>{{ $project->user->name }}</td>
                                     <td>{{ $project->created_at }}</td>
                                     <td>{{ $project->updated_at }}</td>
                                 </tr>

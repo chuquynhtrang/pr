@@ -58,7 +58,7 @@
                     <a href="{{ url('teacher/news') }}"><i class="fa fa-newspaper-o fa-fw"></i>&nbsp;&nbsp;Tin tức</a>
                 </li>
                 <li>
-                    <a href="{{ url('teacher/projects') }}"><i class="fa fa-book fa-fw"></i>&nbsp;&nbsp;Quản lý đề tài</a>
+                    <a href="{{ url('teacher/projects') }}"><i class="fa fa-book fa-fw"></i>&nbsp;&nbsp;Quản lý đồ án</a>
                 </li>
                 <li>
                     <a href="{{url('teacher/users/wait') }}"><i class="fa fa-users fa-fw"></i>&nbsp;&nbsp;Sinh viên chờ phê duyệt</a>

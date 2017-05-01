@@ -8,7 +8,7 @@
         <div class="col-md-4">
             <div class="col-md-2"></div>
             <div class="col-md-2" align="center">
-                <img alt="User Pic" src="{{ $user->avatar }}" id="show_avatar">
+                <img alt="User Pic" src="{{ isset($user->avatar) ? $user->avatar : config('common.image_default') }}" id="show_avatar">
             </div>
         </div>
         <div class="col-md-8">
@@ -35,7 +35,7 @@
                         </tr>
                         <tr>
                             <td>Khóa học</td>
-                            <td>{{ $user->course}}</td>
+                            <td>{{ $user->course }}</td>
                         </tr>
                         <tr>
                             <td>Lớp học</td>

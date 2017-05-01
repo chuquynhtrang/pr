@@ -17,6 +17,16 @@ class CreateCouncilsTable extends Migration
             $table->increments('id');
             $table->text('place');
             $table->datetime('time');
+            $table->text('user1');
+            $table->integer('phone1');
+            $table->text('user2');
+            $table->integer('phone2');
+            $table->text('user3');
+            $table->integer('phone3');
+            $table->text('user4');
+            $table->integer('phone4');
+            $table->text('user5');
+            $table->integer('phone5');
             $table->timestamps();
         });
     }

@@ -13,7 +13,7 @@
     @include('layouts.partials.success')
 
     <div class="row">
-        <div class="col-lg-6">
+        <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading table-panel">
                     Thêm hội đồng bảo vệ
@@ -42,6 +42,8 @@
                                 <th>ID</th>
                                 <th>Địa điểm</th>
                                 <th>Thời gian bảo vệ</th>
+                                <th>Người chấm</th>
+                                <th>Số điện thoại</th>
                                 <th>Sửa</th>
                                 <th>Xóa</th>
                             </tr>
@@ -52,6 +54,20 @@
                                     <td>{{ $council->id }}</td>
                                     <td>{{ $council->place }}</td>
                                     <td>{{ $council->time }}</td>
+                                    <td>
+                                        <p>{{ $council->user1 }}</p>
+                                        <p>{{ $council->user2 }}</p>
+                                        <p>{{ $council->user3 }}</p>
+                                        <p>{{ $council->user4 }}</p>
+                                        <p>{{ $council->user5 }}</p>
+                                    </td>
+                                    <td>
+                                        <p>{{ $council->phone1 }}</p>
+                                        <p>{{ $council->phone2 }}</p>
+                                        <p>{{ $council->phone3 }}</p>
+                                        <p>{{ $council->phone4 }}</p>
+                                        <p>{{ $council->phone5 }}</p>
+                                    </td>
                                     <td>
                                         <a href="{{ url('/admin/councils/' . $council->id . '/edit') }}" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></a>
                                     </td>

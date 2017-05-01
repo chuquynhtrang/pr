@@ -40,6 +40,7 @@ Route::group(['middleware' => 'admin', 'prefix' => 'admin', 'namespace' => 'Admi
 	Route::resource('/councils', 'CouncilController');
 
 	Route::get('/projects', 'ProjectController@index');
+	Route::get('/projects/{id}', 'ProjectController@show');
 	Route::get('/progress', 'UserController@progress');
 	Route::get('/old-projects', 'ProjectController@getOldProjects');
 	Route::get('/old-projects/create', 'ProjectController@createOldProject');

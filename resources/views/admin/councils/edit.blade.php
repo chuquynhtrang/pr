@@ -9,7 +9,7 @@
 
 	    <!-- /.col-lg-12 -->
 	    <div class="row">
-		    <div class="col-lg-6">
+		    <div class="col-lg-12">
 			 	@include('layouts.partials.errors')
 			    @include('layouts.partials.success')
 		        <div class="panel panel-default">

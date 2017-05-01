@@ -19,6 +19,6 @@ class Project extends Model
 
     public function userProjects()
     {
-    	return $this->hasMany(UserProject::class, 'id', 'project_id');
+    	return $this->hasMany(UserProject::class, 'project_id', 'id');
     }
 }
