@@ -33,7 +33,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand url-href" href="{{url('/')}}">HỆ THỐNG QUẢN LÝ ĐỒ ÁN TỐT NGHIỆP KHOA CNTT TRƯỜNG ĐẠI HỌC KỸ THUẬT - HẬU CẦN CÔNG AN NHÂN DÂN</a>
+                <a class="navbar-brand url-href" href="{{url('/')}}">HỆ THỐNG QUẢN LÝ ĐỒ ÁN TỐT NGHIỆP KHOA CNTT TRƯỜNG ĐẠI HỌC KỸ THUẬT - HẬU CẦN CAND</a>
             </div>
             @include('layouts.partials.navbar')
             @if (Auth::user())

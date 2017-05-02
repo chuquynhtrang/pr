@@ -19,7 +19,7 @@
         <div class="row">
             <div class="col-lg-6">
                 <div class="form-group">
-                    <label for="user1" class="control-label">Người chấm 1: </label>
+                    <label for="user1" class="control-label">Chủ tịch hội đồng: </label>
                     <input class="form-control" value="{{ isset($council) ? $council->user1 : '' }}" name="user1" required="required">
                 </div>
             </div>
@@ -33,7 +33,7 @@
         <div class="row">
             <div class="col-lg-6">
                 <div class="form-group">
-                    <label for="user2" class="control-label">Người chấm 2: </label>
+                    <label for="user2" class="control-label">Phản biện 1: </label>
                     <input class="form-control" value="{{ isset($council) ? $council->user2 : '' }}" name="user2" required="required">
                 </div>
             </div>
@@ -47,7 +47,7 @@
         <div class="row">
             <div class="col-lg-6">
                 <div class="form-group">
-                    <label for="user3" class="control-label">Người chấm 3: </label>
+                    <label for="user3" class="control-label">Phản biện 2: </label>
                     <input class="form-control" value="{{ isset($council) ? $council->user3 : '' }}" name="user3" required="required">
                 </div>
             </div>
@@ -61,7 +61,7 @@
         <div class="row">
             <div class="col-lg-6">
                 <div class="form-group">
-                    <label for="user4" class="control-label">Người chấm 4: </label>
+                    <label for="user4" class="control-label">Ủy viên: </label>
                     <input class="form-control" value="{{ isset($council) ? $council->user4 : '' }}" name="user4" required="required">
                 </div>
             </div>
@@ -75,7 +75,7 @@
         <div class="row">
             <div class="col-lg-6">
                 <div class="form-group">
-                    <label for="user5" class="control-label">Người chấm 5: </label>
+                    <label for="user5" class="control-label">Thư kí: </label>
                     <input class="form-control" value="{{ isset($council) ? $council->user5 : '' }}" name="user5" required="required">
                 </div>
             </div>

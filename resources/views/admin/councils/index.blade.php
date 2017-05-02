@@ -4,7 +4,7 @@
 <div id="page-wrapper">
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">Hội đồng bảo vệ</h1>
+            <h1 class="page-header">Hội đồng chấm đồ án</h1>
         </div>
         <!-- /.col-lg-12 -->
     </div>
@@ -16,7 +16,7 @@
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading table-panel">
-                    Thêm hội đồng bảo vệ
+                    Thêm hội đồng chấm đồ án
                 </div>
                 @include('admin.councils._form', [
                     'action' => url('/admin/councils'),
@@ -32,7 +32,7 @@
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading table-panel">
-                    Danh sách hội đồng bảo vệ
+                    Danh sách hội đồng chấm đồ án
                 </div>
                 <!-- /.panel-heading -->
                 <div class="panel-body">
@@ -55,11 +55,11 @@
                                     <td>{{ $council->place }}</td>
                                     <td>{{ $council->time }}</td>
                                     <td>
-                                        <p>{{ $council->user1 }}</p>
-                                        <p>{{ $council->user2 }}</p>
-                                        <p>{{ $council->user3 }}</p>
-                                        <p>{{ $council->user4 }}</p>
-                                        <p>{{ $council->user5 }}</p>
+                                        <p><b>Chủ tịch hội đồng:</b>&nbsp;{{ $council->user1 }}</p>
+                                        <p><b>Phản biện 1:</b>&nbsp;{{ $council->user2 }}</p>
+                                        <p><b>Phản biện 2:</b>&nbsp;{{ $council->user3 }}</p>
+                                        <p><b>Ủy viên:</b>&nbsp;{{ $council->user4 }}</p>
+                                        <p><b>Thư kí:</b>&nbsp;{{ $council->user5 }}</p>
                                     </td>
                                     <td>
                                         <p>{{ $council->phone1 }}</p>
