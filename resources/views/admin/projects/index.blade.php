@@ -34,7 +34,7 @@
                                     <td>
                                         <a href="{{isset($project->id) ? url('/admin/projects/'. $project->id) : ''}}"> {{ $project->name }}</a>
                                     </td>
-                                    <td>{{ $project->user->name }}</td>
+                                    <td>{{ isset($project->user->name) ? $project->user->name : '' }}</td>
                                     <td>{{ $project->created_at }}</td>
                                     <td>{{ $project->updated_at }}</td>
                                 </tr>

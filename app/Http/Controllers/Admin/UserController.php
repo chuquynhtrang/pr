@@ -113,7 +113,6 @@ class UserController extends Controller
                 ->withErrors(['message' => 'Không tìm thấy']);
         }
 
-        $user->delete();
         if(count($userProjects)) {
             foreach($userProjects as $userProject) {
                 $userProject->delete();
@@ -129,29 +128,30 @@ class UserController extends Controller
         if(count($projects)) {
             foreach ($projects as $project) {
                 $up = UserProject::whereProjectId($project->id)->get();
-                $di = Diary::whereUserId($up->user_id)->get();
-                if(count($up)) {    
-                    foreach ($up as $up) {
-                        $up->delete();
+                if (count($up)) {
+                    $di = Diary::whereUserId($up->user_id)->get();
+                    if(count($di)) {
+                        foreach ($di as $di) {
+                            $di->delete();
+                        }
                     }
                 }
-
-                if(count($di)) {
-                    foreach ($di as $di) {
-                        $di->delete();
+                if(count($up)) {
+                    foreach ($up as $up) {
+                        $up->delete();
                     }
                 }
 
                 $project->delete();
             }
         }
+        $user->delete();
         return redirect('/admin/users/' . $role)->withSuccess('Xóa thành công!');
     }
 
     public function importExcel(Request $request, $role)
     {
         if ($request->hasFile('fileUser')) {
-            // dd('aaa');
             $path = $request->file('fileUser')->getRealPath();
             $userExcel = Excel::load($path)->get();
             if (!empty($userExcel) && $userExcel->count()) {
