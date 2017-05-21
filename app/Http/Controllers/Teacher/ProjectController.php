@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Project;
 use App\Models\UserProject;
 use Auth;
+use App\Http\Requests\ProjectRequest;
+use Session;
 
 class ProjectController extends Controller
 {
@@ -38,17 +40,13 @@ class ProjectController extends Controller
         return view('teacher.projects.create');
     }
 
-    public function store(Request $request)
+    public function store(ProjectRequest $request)
     {
-        $this->validate($request, [
-            'name' => 'required|unique:projects',
-        ]);
-
         $project = new Project();
         $project->name = $request->name;
         $project->description = $request->description;
         $project->teacher_id = Auth::user()->id;
-        if($request->hasFile('references')) {
+        if ($request->hasFile('references')) {
             $name = $request->file('references');
             $filename = $name->getClientOriginalName();
             $request->file('references')->move(base_path() . '/public/uploads/references', $filename);
@@ -86,6 +84,13 @@ class ProjectController extends Controller
         if (!$project) {
             return redirect('/teacher/projects')
                 ->withErrors(['message' => 'Không tìm thấy tên đề tài']);
+        }
+
+        $projects = Project::where('name', '<>', $project->name)->get();
+        foreach ($projects as $project) {
+            if ($request->name == $project->name) {
+                Session::flash('error', 'Đề tài này đã được đăng kí');
+            }
         }
 
         $project->name = $request->name;
