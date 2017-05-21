@@ -23,7 +23,7 @@
                     <a href="#"><i class="fa fa-user-circle fa-fw"></i>&nbsp;&nbsp;Quản lý người dùng<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="{{ url('admin/users/0') }}">Sinh viên</a>
+                            <a href="{{ url('admin/users/0') }}">Học viên</a>
                         </li>
                         <li>
                             <a href="{{ url('admin/users/2') }}">Giảng viên</a>
@@ -61,10 +61,10 @@
                     <a href="{{ url('teacher/projects') }}"><i class="fa fa-book fa-fw"></i>&nbsp;&nbsp;Quản lý đồ án</a>
                 </li>
                 <li>
-                    <a href="{{url('teacher/users/wait') }}"><i class="fa fa-users fa-fw"></i>&nbsp;&nbsp;Sinh viên chờ phê duyệt</a>
+                    <a href="{{url('teacher/users/wait') }}"><i class="fa fa-users fa-fw"></i>&nbsp;&nbsp;Học viên chờ phê duyệt</a>
                 </li>
                 <li>
-                    <a href="{{url('teacher/users/receive') }}"><i class="fa fa-users fa-fw"></i>&nbsp;&nbsp;Sinh viên đã nhận</a>
+                    <a href="{{url('teacher/users/receive') }}"><i class="fa fa-users fa-fw"></i>&nbsp;&nbsp;Học viên đã nhận</a>
                 </li>
                 </li>
                 <li>

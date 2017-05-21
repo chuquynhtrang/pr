@@ -111,8 +111,11 @@ class ProjectController extends Controller
                 ->withErrors(['message' => 'Không tìm thấy đề tài']);
         }
 
+        if (isset($project->references)) {
+            unlink('uploads/references/' . $project->references);
+        }
+
         $project->delete();
-        unlink('uploads/references/' . $project->references);
 
         return redirect('/teacher/projects')->withSuccess('Xóa đề tài thành công!');
     }
