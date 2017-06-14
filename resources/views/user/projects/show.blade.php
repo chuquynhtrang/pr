@@ -73,7 +73,7 @@
                             <tbody>
                                 @foreach($userWait as $up)
                                     <tr>
-                                        <td>{{ $up->user->id }}</td>
+                                        <td>{{ $up->user->user_code }}</td>
                                         <td>{{ $up->user->name }}</td>
                                         <td>
                                             <a href="#"><img src="{{ isset($up->user->avatar) ? $up->user->avatar : config('common.image_default') }}"  class="user_avatar"></a>
@@ -112,7 +112,7 @@
                             <tbody>
                                 @foreach($userReceive as $up)
                                     <tr>
-                                        <td>{{ $up->user->id }}</td>
+                                        <td>{{ $up->user->user_code }}</td>
                                         <td>{{ $up->user->name }}</td>
                                         <td>
                                             <a href="#"><img src="{{ isset($up->user->avatar) ? $up->user->avatar : config('common.image_default') }}"  class="user_avatar"></a>
